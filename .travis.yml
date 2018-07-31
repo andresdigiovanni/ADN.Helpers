@@ -1,0 +1,9 @@
+language: csharp
+solution: ADN.Helpers.sln
+mono: none
+dotnet: 2.0.0
+script:
+  - dotnet restore
+  - dotnet build ./src/ADN.Helpers/
+  - dotnet build ./tests/ADN.Helpers.Tests/
+  - dotnet test ./tests/ADN.Helpers.Tests/
