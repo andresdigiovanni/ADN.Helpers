@@ -3,6 +3,7 @@
 ADN.Helpers is a cross-platform open-source library which provides helpers and utilities to .NET developers.
 
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.Helpers.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.Helpers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
 
