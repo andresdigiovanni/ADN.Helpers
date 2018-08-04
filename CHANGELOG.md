@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - Helpers classes: ArrayHelper, ByteHelper and DateTimeHelper.
 
+### Removed
+- Methods UIntToString and StringToUInt from IntegerHelper class.
+
 ## [0.0.1] - 2018-07-30
 ### Added
 - Helpers classes: IntegerHelper and ListHelper.

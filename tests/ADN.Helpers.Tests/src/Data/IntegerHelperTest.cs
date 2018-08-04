@@ -65,27 +65,5 @@ namespace ADN.Helpers.Tests.Data
         {
             Assert.Throws<DivideByZeroException>(() => IntegerHelper.RoundNumber(10, 0, 11, 13));
         }
-
-        [Theory]
-        [InlineData(1684234849, "abcd")]
-        [InlineData(25185, "ab")]
-        [InlineData(0, "")]
-        public void UIntToString_Valid(uint value, string expected)
-        {
-            var result = IntegerHelper.UIntToString(value);
-
-            Assert.Equal(expected, result);
-        }
-
-        [Theory]
-        [InlineData("abcd", 1684234849)]
-        [InlineData("ab", 25185)]
-        [InlineData("", 0)]
-        public void StringToUInt_Valid(string value, uint expected)
-        {
-            var result = IntegerHelper.StringToUInt(value);
-
-            Assert.Equal(expected, result);
-        }
     }
 }
