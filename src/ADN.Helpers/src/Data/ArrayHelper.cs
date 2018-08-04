@@ -13,7 +13,7 @@ namespace ADN.Helpers.Data
         /// Sets all values.
         /// </summary>
         /// <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
-        /// <param name="array">The one-dimensional, zero-based array</param>
+        /// <param name="array">The one-dimensional, zero-based array.</param>
         /// <param name="value">The value.</param>
         /// <returns>A reference to the changed array.</returns>
         public static T[] SetAllValues<T>(this T[] array, T value)
@@ -38,9 +38,7 @@ namespace ADN.Helpers.Data
         /// <typeparam name="T">Array type.</typeparam>
         /// <param name="first">The <see cref="Array"/> that contains data to compare with.</param>
         /// <param name="second">The <see cref="Array"/> that contains data to compare to.</param>
-        /// <returns>
-        /// Returns <c>true</c> if all element match and <c>false</c> otherwise.
-        /// </returns>
+        /// <returns>Returns <c>true</c> if all element match and <c>false</c> otherwise.</returns>
         public static bool ArrayEqual<T>(this T[] first, T[] second) where T : IEquatable<T>
         {
             if (ReferenceEquals(first, second))
@@ -73,7 +71,7 @@ namespace ADN.Helpers.Data
         /// Subs the array.
         /// </summary>
         /// <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
-        /// <param name="data">The data.</param>
+        /// <param name="array">The data.</param>
         /// <param name="index">The index.</param>
         /// <param name="length">The length.</param>
         /// <returns>T[].</returns>
@@ -105,6 +103,13 @@ namespace ADN.Helpers.Data
             return result;
         }
 
+        /// <summary>
+        /// Combine the Arrays.
+        /// </summary>
+        /// <typeparam name="T">Array type.</typeparam>
+        /// <param name="first">First element to combine.</param>
+        /// <param name="second">Second element to combine.</param>
+        /// <returns>T[].</returns>
         public static T[] Combine<T>(T[] first, T[] second)
         {
             T[] result = new T[first.Length + second.Length];

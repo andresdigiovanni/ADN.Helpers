@@ -4,8 +4,17 @@ using System.Linq;
 
 namespace ADN.Helpers.Data
 {
+    /// <summary>
+    /// A static class of extension methods for <see cref="List{T}"/>.
+    /// </summary>
     public static class ListHelper
     {
+        /// <summary>
+        /// Find the index of the maximum value of the list.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the list.</typeparam>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Index of the maximum value of the list.</returns>
         public static int IndexOfMax<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -29,6 +38,12 @@ namespace ADN.Helpers.Data
             return maxIndex;
         }
 
+        /// <summary>
+        /// Find the index of the minimum value of the list.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the list.</typeparam>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Index of the minimum value of the list.</returns>
         public static int IndexOfMin<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -52,6 +67,11 @@ namespace ADN.Helpers.Data
             return minIndex;
         }
 
+        /// <summary>
+        /// Shuffle the elements of the list.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the list.</typeparam>
+        /// <param name="values">The list of elements.</param>
         public static void Shuffle<T>(this IList<T> values)
         {
             // Check arguments
@@ -73,6 +93,11 @@ namespace ADN.Helpers.Data
             }
         }
 
+        /// <summary>
+        /// Gets the value of the middle element of the list after sorted.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Index of the middle element.</returns>
         public static double Median(this IEnumerable<double> values)
         {
             // Check arguments
@@ -92,6 +117,11 @@ namespace ADN.Helpers.Data
             return median;
         }
 
+        /// <summary>
+        /// Gets the mean of the values of the list.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Mean of the values.</returns>
         public static double Mean(this List<double> values)
         {
             // Check arguments
@@ -103,6 +133,13 @@ namespace ADN.Helpers.Data
             return values.Count == 0 ? 0 : values.Mean(0, values.Count - 1);
         }
 
+        /// <summary>
+        /// Gets the mean of the values of the list of a given range.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <param name="start">Start index.</param>
+        /// <param name="end">End index.</param>
+        /// <returns>Mean of the values.</returns>
         public static double Mean(this List<double> values, int start, int end)
         {
             // Check arguments
@@ -136,16 +173,35 @@ namespace ADN.Helpers.Data
             return s / (end - start + 1);
         }
 
+        /// <summary>
+        /// Calculate the variance of the values of the list.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Variance of values.</returns>
         public static double Variance(this List<double> values)
         {
             return values.Variance(values.Mean(), 0, values.Count);
         }
 
+        /// <summary>
+        /// Calculate the variance of the values of the list.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <param name="mean">The mean of the values of the list.</param>
+        /// <returns>Variance of values.</returns>
         public static double Variance(this List<double> values, double mean)
         {
             return values.Variance(mean, 0, values.Count);
         }
 
+        /// <summary>
+        /// Calculate the variance of the values of the list of a given range.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <param name="mean">The mean of the values of the list.</param>
+        /// <param name="start">Start index.</param>
+        /// <param name="end">End index.</param>
+        /// <returns>Variance of values.</returns>
         public static double Variance(this List<double> values, double mean, int start, int end)
         {
             double variance = 0;
@@ -156,16 +212,28 @@ namespace ADN.Helpers.Data
             }
 
             int n = end - start;
-            if (start > 0) n -= 1;
+            if (start > 0) n--;
 
-            return variance / (n);
+            return variance / n;
         }
 
+        /// <summary>
+        /// Calculate the standard deviation of the values of the list.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <returns>Standard deviation.</returns>
         public static double StandardDeviation(this List<double> values)
         {
             return values.Count == 0 ? 0 : values.StandardDeviation(0, values.Count);
         }
 
+        /// <summary>
+        /// Calculate the standard deviation of the values of the list of a given range.
+        /// </summary>
+        /// <param name="values">The list of elements.</param>
+        /// <param name="start">Start index.</param>
+        /// <param name="end">End index.</param>
+        /// <returns>Standard deviation.</returns>
         public static double StandardDeviation(this List<double> values, int start, int end)
         {
             double mean = values.Mean(start, end);

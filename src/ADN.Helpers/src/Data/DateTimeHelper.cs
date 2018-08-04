@@ -4,8 +4,16 @@ using System.Text;
 
 namespace ADN.Helpers.Data
 {
-    public class DateTimeHelper
+    /// <summary>
+    /// A static class of extension methods for <see cref="DateTime"/>.
+    /// </summary>
+    public static class DateTimeHelper
     {
+        /// <summary>
+        /// Converts DateTime to unix time stamp.
+        /// </summary>
+        /// <param name="date">The DateTime.</param>
+        /// <returns>The unix time stamp.</returns>
         public static long DateTimeToUnixTimeStamp(DateTime date)
         {
             long unixTimestamp = date.Ticks - new DateTime(1970, 1, 1).Ticks;
@@ -14,6 +22,11 @@ namespace ADN.Helpers.Data
             return unixTimestamp;
         }
 
+        /// <summary>
+        /// Converts unix time stamp to DateTime.
+        /// </summary>
+        /// <param name="unixTimestamp">The unix time stamp.</param>
+        /// <returns>The DateTime.</returns>
         public static DateTime UnixTimeStampToDateTime(long unixTimestamp)
         {
             DateTime date = new DateTime(1970, 1, 1);

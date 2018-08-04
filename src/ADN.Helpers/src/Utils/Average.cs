@@ -2,15 +2,18 @@
 
 namespace ADN.Helpers.Utils
 {
-    public class Average
+    /// <summary>
+    /// A static class to calculate averages.
+    /// </summary>
+    public static class Average
     {
         /// <summary>
-        /// Calculate average
+        /// Calculate average.
         /// </summary>
-        /// <param name="previousAvg">Previous average</param>
-        /// <param name="count">Number of elements with the new value</param>
-        /// <param name="currentValue">New value</param>
-        /// <returns>Average</returns>
+        /// <param name="previousAvg">Previous average.</param>
+        /// <param name="count">Number of elements with the new value.</param>
+        /// <param name="currentValue">New value.</param>
+        /// <returns>Average.</returns>
         public static double RunningAverage(double previousAvg, int count, double currentValue)
         {
             if (count == 0)

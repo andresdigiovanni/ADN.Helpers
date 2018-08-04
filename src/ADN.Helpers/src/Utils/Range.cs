@@ -2,8 +2,21 @@
 
 namespace ADN.Helpers.Utils
 {
-    public class Range
+    /// <summary>
+    /// A static class of utilities for ranges.
+    /// </summary>
+    public static class Range
     {
+        /// <summary>
+        /// Calculate the intersection of the given ranges.
+        /// </summary>
+        /// <param name="max1">Maximum value of the first rank.</param>
+        /// <param name="min1">Minimum value of the first rank.</param>
+        /// <param name="max2">Maximum value of the second rank.</param>
+        /// <param name="min2">Minimum value of the second rank.</param>
+        /// <param name="maxR">Maximum value of the intersection range.</param>
+        /// <param name="minR">Minimum value of the intersection range.</param>
+        /// <returns></returns>
         public static bool Intersection(double max1, double min1, double max2, double min2, out double maxR, out double minR)
         {
             bool intersection;
