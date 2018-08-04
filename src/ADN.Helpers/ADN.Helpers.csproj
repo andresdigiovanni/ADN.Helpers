@@ -15,7 +15,7 @@
 	<PackageTags>Utilities; Helpers; Array; Average; Byte; DateTime; Filter; Integer; List; Range</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl> 
     <RepositoryUrl>http://github.com/andresdigiovanni/ADN.Helpers</RepositoryUrl> 
-    <PackageIconUrl>http://github.com/andresdigiovanni/ADN.Helpers/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Helpers/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
