@@ -139,7 +139,7 @@ namespace ADN.Helpers.Tests.Data
 
         [Theory]
         [ClassData(typeof(MedianData))]
-        public void Median(int[] values, int expected)
+        public void Median(double[] values, double expected)
         {
             var result = ListHelper.Median(values);
 
@@ -149,7 +149,7 @@ namespace ADN.Helpers.Tests.Data
         [Fact]
         public void Median_Exception_Value_Empty()
         {
-            Assert.Throws<ArgumentNullException>(() => ListHelper.Median(new int[] { }));
+            Assert.Throws<ArgumentNullException>(() => ListHelper.Median(new double[] { }));
         }
 
         [Fact]
@@ -282,10 +282,10 @@ namespace ADN.Helpers.Tests.Data
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                yield return new object[] { new int[] { 0 }, 0 };
-                yield return new object[] { new int[] { 1 }, 1 };
-                yield return new object[] { new int[] { 2, 3, 5, 1, 4 }, 3 };
-                yield return new object[] { new int[] { 2, 1, 4, 5, 3, 0 }, 2 };
+                yield return new object[] { new double[] { 0 }, 0 };
+                yield return new object[] { new double[] { 1 }, 1 };
+                yield return new object[] { new double[] { 2, 3, 5, 1, 4 }, 3 };
+                yield return new object[] { new double[] { 2, 1, 4, 5, 3, 0 }, 2.5 };
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

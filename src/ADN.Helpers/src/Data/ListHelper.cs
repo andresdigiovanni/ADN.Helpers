@@ -73,7 +73,7 @@ namespace ADN.Helpers.Data
             }
         }
 
-        public static int Median(this IEnumerable<int> values)
+        public static double Median(this IEnumerable<double> values)
         {
             // Check arguments
             if (ReferenceEquals(values, null) || values.Count() <= 0)
@@ -84,7 +84,7 @@ namespace ADN.Helpers.Data
             int midIndex = values.Count() / 2;
             var sorted = values.OrderBy(x => x).ToList();
 
-            int median =
+            double median =
                 values.Count() % 2 == 0
                     ? (sorted[midIndex] + sorted[midIndex - 1]) / 2
                     : sorted[midIndex];

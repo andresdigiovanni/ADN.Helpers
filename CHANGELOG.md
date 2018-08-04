@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - Helpers classes: ArrayHelper, ByteHelper and DateTimeHelper.
 
+### Changed
+- Changed integer to double in input parameter in Median method from List Helper class.
+
 ### Removed
 - Methods UIntToString and StringToUInt from IntegerHelper class.
 
