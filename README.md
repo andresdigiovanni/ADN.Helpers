@@ -18,6 +18,10 @@ Install-Package ADN.Helpers
 
 Or alternatively you can add the ADN.Helpers package from within Visual Studio's NuGet package manager.
 
+## Examples
+
+Please find examples and the documentation at the [Wiki](wiki) of this repository.
+
 ## Contributing
 
 We welcome contributions! Please review our [contribution guide](CONTRIBUTING.md).
