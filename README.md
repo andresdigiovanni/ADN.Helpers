@@ -20,7 +20,7 @@ Or alternatively you can add the ADN.Helpers package from within Visual Studio's
 
 ## Examples
 
-Please find examples and the documentation at the [Wiki](wiki) of this repository.
+Please find examples and the documentation at the [wiki](https://github.com/andresdigiovanni/ADN.Helpers/wiki) of this repository.
 
 ## Contributing
 
