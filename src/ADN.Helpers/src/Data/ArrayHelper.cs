@@ -10,29 +10,6 @@ namespace ADN.Helpers.Data
     public static class ArrayHelper
     {
         /// <summary>
-        /// Sets all values.
-        /// </summary>
-        /// <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
-        /// <param name="array">The one-dimensional, zero-based array.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>A reference to the changed array.</returns>
-        public static T[] SetAllValues<T>(this T[] array, T value)
-        {
-            // Check arguments
-            if (ReferenceEquals(array, null) || array.Length <= 0)
-            {
-                throw (new ArgumentNullException("array"));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = value;
-            }
-
-            return array;
-        }
-
-        /// <summary>
         /// Checks if the Arrays are equal.
         /// </summary>
         /// <typeparam name="T">Array type.</typeparam>
@@ -68,6 +45,44 @@ namespace ADN.Helpers.Data
         }
 
         /// <summary>
+        /// Combine the Arrays.
+        /// </summary>
+        /// <typeparam name="T">Array type.</typeparam>
+        /// <param name="first">First element to combine.</param>
+        /// <param name="second">Second element to combine.</param>
+        /// <returns>T[].</returns>
+        public static T[] Combine<T>(T[] first, T[] second)
+        {
+            T[] result = new T[first.Length + second.Length];
+            Array.Copy(first, 0, result, 0, first.Length);
+            Array.Copy(second, 0, result, first.Length, second.Length);
+            return result;
+        }
+
+        /// <summary>
+        /// Sets all values.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
+        /// <param name="array">The one-dimensional, zero-based array.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>A reference to the changed array.</returns>
+        public static T[] SetAllValues<T>(this T[] array, T value)
+        {
+            // Check arguments
+            if (ReferenceEquals(array, null) || array.Length <= 0)
+            {
+                throw (new ArgumentNullException("array"));
+            }
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = value;
+            }
+
+            return array;
+        }
+
+        /// <summary>
         /// Subs the array.
         /// </summary>
         /// <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
@@ -100,21 +115,6 @@ namespace ADN.Helpers.Data
 
             T[] result = new T[length];
             Array.Copy(array, index, result, 0, length);
-            return result;
-        }
-
-        /// <summary>
-        /// Combine the Arrays.
-        /// </summary>
-        /// <typeparam name="T">Array type.</typeparam>
-        /// <param name="first">First element to combine.</param>
-        /// <param name="second">Second element to combine.</param>
-        /// <returns>T[].</returns>
-        public static T[] Combine<T>(T[] first, T[] second)
-        {
-            T[] result = new T[first.Length + second.Length];
-            Array.Copy(first, 0, result, 0, first.Length);
-            Array.Copy(second, 0, result, first.Length, second.Length);
             return result;
         }
     }
