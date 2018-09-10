@@ -12,7 +12,7 @@
 	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>http://github.com/andresdigiovanni/ADN.Helpers/blob/master/LICENSE</PackageLicenseUrl>
 	<PackageProjectUrl>http://github.com/andresdigiovanni/ADN.Helpers</PackageProjectUrl>
-	<PackageTags>Utilities; Helpers; Array; Average; Byte; DateTime; Directory; Filter; Integer; List; Range</PackageTags>
+	<PackageTags>Utilities; Helpers; Array; Average; Byte; DateTime; Directory; File; Filter; Integer; List; Range</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl> 
     <RepositoryUrl>http://github.com/andresdigiovanni/ADN.Helpers</RepositoryUrl> 
     <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Helpers/master/icon.png</PackageIconUrl>
