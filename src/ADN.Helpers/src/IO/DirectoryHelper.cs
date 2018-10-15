@@ -15,10 +15,11 @@ namespace ADN.Helpers.IO
         /// </summary>
         /// <param name="source">Source folder</param>
         /// <param name="destination">Destination folder</param>
+        /// <param name="overwrite">Overwrite destination file</param>
         /// <remarks>
         /// This method check if is posible to override a file and retry it
         /// </remarks>
-        public static void CopyDirectory(string source, string destination)
+        public static void CopyDirectory(string source, string destination, bool overwrite = false)
         {
             // Get the subdirectories for the specified directory.
             DirectoryInfo dir = new DirectoryInfo(source);
@@ -40,7 +41,7 @@ namespace ADN.Helpers.IO
             foreach (FileInfo file in files)
             {
                 string temppath = Path.Combine(destination, file.Name);
-                file.CopyTo(temppath, false);
+                file.CopyTo(temppath, overwrite);
             }
 
             foreach (DirectoryInfo subdir in dirs)
