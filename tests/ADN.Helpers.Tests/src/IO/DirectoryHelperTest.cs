@@ -39,12 +39,14 @@ namespace ADN.Helpers.Tests.IO
 
             //create source files
             Directory.CreateDirectory(SOURCE_DIR);
+            Directory.CreateDirectory(Path.Combine(SOURCE_DIR, SOURCE_SUB_DIR));
             Directory.CreateDirectory(DEST_DIR);
-            using (File.Create(Path.Combine(SOURCE_DIR, FILE_NAME))) { }
-            using (File.Create(Path.Combine(DEST_DIR, FILE_NAME))) { }
+            Directory.CreateDirectory(Path.Combine(DEST_DIR, SOURCE_SUB_DIR));
+            using (File.Create(Path.Combine(SOURCE_DIR, SOURCE_SUB_DIR, FILE_NAME))) { }
+            using (File.Create(Path.Combine(DEST_DIR, SOURCE_SUB_DIR, FILE_NAME))) { }
 
             DirectoryHelper.CopyDirectory(SOURCE_DIR, DEST_DIR, overwrite);
-            Assert.True(File.Exists(Path.Combine(DEST_DIR, FILE_NAME)));
+            Assert.True(File.Exists(Path.Combine(DEST_DIR, SOURCE_SUB_DIR, FILE_NAME)));
         }
 
         [Fact]

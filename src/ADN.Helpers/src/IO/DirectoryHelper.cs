@@ -47,7 +47,7 @@ namespace ADN.Helpers.IO
             foreach (DirectoryInfo subdir in dirs)
             {
                 string temppath = Path.Combine(destination, subdir.Name);
-                CopyDirectory(subdir.FullName, temppath);
+                CopyDirectory(subdir.FullName, temppath, overwrite);
             }
         }
     }
