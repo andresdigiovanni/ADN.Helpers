@@ -23,7 +23,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData("b", Foo.B, true)]
         public void GetEnumValue(string value, Foo expected, bool ignoreCase)
         {
-            var result = EnumHelper.GetEnumValue(expected.GetType(), value, ignoreCase);
+            var result = EnumHelper.GetEnumValue(typeof(Foo), value, ignoreCase);
 
             Assert.Equal(expected, result);
         }
