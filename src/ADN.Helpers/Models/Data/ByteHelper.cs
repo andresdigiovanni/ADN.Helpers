@@ -14,7 +14,19 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="bytes">The value.</param>
         /// <param name="separator">Hexadecimal values separator.</param>
-        /// <returns></returns>
+        /// <returns>Hexadecimal string.</returns>
+        /// <exception cref="ArgumentNullException">bytes is null</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var array = new byte[] { 48, 49, 50, 51, 52 };
+        /// var separator = "-";
+        /// var result = ByteHelper.BytesToHexa(array, separator);
+        /// 
+        /// /*
+        /// result is "30-31-32-33-34"
+        /// */
+        /// </code>
+        /// </example>
         public static string BytesToHexa(byte[] bytes, string separator = "")
         {
             // Check arguments
@@ -42,7 +54,18 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="separator">Hexadecimal values separator.</param>
-        /// <returns></returns>
+        /// <returns>Byte array.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "30-31-32-33-34";
+        /// var separator = "-";
+        /// var result = ByteHelper.HexaToBytes(value, separator);
+        /// 
+        /// /*
+        /// result contains the values { 48, 49, 50, 51, 52 }
+        /// */
+        /// </code>
+        /// </example>
         public static byte[] HexaToBytes(string value, string separator = "")
         {
             List<byte> bytes = new List<byte>();
@@ -65,6 +88,16 @@ namespace ADN.Helpers.Data
         /// <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
         /// <returns>A string that contains the results of decoding the specified sequence of bytes.</returns>
         /// <remarks>Equivalent to System.Text.Encoding.UTF8.GetString().</remarks>
+        /// <example>
+        /// <code lang="csharp">
+        /// var array = new byte[] { 48, 49, 50, 51, 52 };
+        /// var result = ByteHelper.BytesToString(array);
+        /// 
+        /// /*
+        /// result is "01234"
+        /// */
+        /// </code>
+        /// </example>
         public static string BytesToString(byte[] bytes)
         {
             return Encoding.UTF8.GetString(bytes);
@@ -76,6 +109,16 @@ namespace ADN.Helpers.Data
         /// <param name="value">The character array containing the characters to encode.</param>
         /// <returns>A byte array containing the results of encoding the specified set of characters.</returns>
         /// <remarks>Equivalent to System.Text.Encoding.UTF8.GetBytes().</remarks>
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "01234";
+        /// var result = ByteHelper.StringToBytes(value);
+        /// 
+        /// /*
+        /// result contains the values { 48, 49, 50, 51, 52 }
+        /// */
+        /// </code>
+        /// </example>
         public static byte[] StringToBytes(string value)
         {
             return Encoding.UTF8.GetBytes(value);

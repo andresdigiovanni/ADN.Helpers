@@ -14,6 +14,16 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="plainText">Plain text string.</param>
         /// <returns>String encoded with base-64 digits.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "0123456789";
+        /// var result = Base64Helper.Encode(value);
+        /// 
+        /// /*
+        /// result is "MDEyMzQ1Njc4OQ=="
+        /// */
+        /// </code>
+        /// </example>
         public static string Encode(string plainText)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
@@ -25,6 +35,16 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="base64EncodedData">String encoded with base-64 digits.</param>
         /// <returns>Plain text string.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "MDEyMzQ1Njc4OQ==";
+        /// var result = Base64Helper.Decode(value);
+        /// 
+        /// /*
+        /// result is "0123456789"
+        /// */
+        /// </code>
+        /// </example>
         public static string Decode(string base64EncodedData)
         {
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
