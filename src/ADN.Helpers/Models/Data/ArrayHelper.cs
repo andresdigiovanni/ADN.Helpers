@@ -88,7 +88,7 @@ namespace ADN.Helpers.Data
         /// <param name="array">The one-dimensional, zero-based array.</param>
         /// <param name="value">The value.</param>
         /// <returns>A reference to the changed array.</returns>
-        /// <exception cref="ArgumentNullException">array is null or empty.</exception>
+        /// <exception cref="ArgumentNullException">Array is null or empty.</exception>
         /// <example>
         /// <code lang="csharp">
         /// var array = new double[] { 0, 0, 0, 0, 0 };
@@ -113,6 +113,100 @@ namespace ADN.Helpers.Data
             }
 
             return array;
+        }
+
+        /// <summary>
+        /// Split an array into subarrays by specifying the number of divisions.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the array that will be split.</typeparam>
+        /// <param name="array">Array to split.</param>
+        /// <param name="numberOfDivisions">Number of divisions.</param>
+        /// <returns>Subarrays.</returns>
+        /// <exception cref="ArgumentNullException">Array is null or empty.</exception>
+        /// <exception cref="DivideByZeroException">Number of divisions is zero.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var array = new double[] { 0, 1, 2 };
+        /// var numberOfDivisions = 2;
+        /// var result = array.SplitByNumberOfDivisions(numberOfDivisions);
+        /// 
+        /// /*
+        /// result contains the values { { 0, 1 }, { 2 } }
+        /// */
+        /// </code>
+        /// </example>
+        public static IEnumerable<T[]> SplitByNumberOfDivisions<T>(this T[] array, int numberOfDivisions)
+        {
+            // Check arguments
+            if (ReferenceEquals(array, null))
+            {
+                throw (new ArgumentNullException("array"));
+            }
+
+            if (numberOfDivisions <= 0)
+            {
+                throw (new DivideByZeroException("numberDivisions"));
+            }
+
+            IEnumerable<T[]> result;
+            int elementsInDivision = (int)Math.Ceiling(array.Length / (double)numberOfDivisions);
+
+            if (elementsInDivision > 0)
+            {
+                result = array.SplitByNumberOfElementsInDivision(elementsInDivision);
+            }
+            else
+            {
+                result = new List<T[]>();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Split an array into subarrays by specifying the number of elements in each division.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the array that will be split.</typeparam>
+        /// <param name="array">Array to split.</param>
+        /// <param name="elementsInDivision">Elements in each division.</param>
+        /// <returns>Subarrays.</returns>
+        /// <exception cref="ArgumentNullException">Array is null or empty.</exception>
+        /// <exception cref="DivideByZeroException">Number of elements in division is zero.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var array = new double[] { 0, 1, 2 };
+        /// var elementsInDivision = 2;
+        /// var result = array.SplitByNumberOfElementsInDivision(elementsInDivision);
+        /// 
+        /// /*
+        /// result contains the values { { 0, 1 }, { 2 } }
+        /// */
+        /// </code>
+        /// </example>
+        public static IEnumerable<T[]> SplitByNumberOfElementsInDivision<T>(this T[] array, int elementsInDivision)
+        {
+            // Check arguments
+            if (ReferenceEquals(array, null))
+            {
+                throw (new ArgumentNullException("array"));
+            }
+
+            if (elementsInDivision <= 0)
+            {
+                throw (new DivideByZeroException("elementsInDivision"));
+            }
+
+            var result = new List<T[]>();
+
+            for (int index = 0; index < array.Length; index += elementsInDivision)
+            {
+                var length = index + elementsInDivision < array.Length ? elementsInDivision : array.Length - index;
+                var temp = new T[length];
+                Array.Copy(array, index, temp, 0, length);
+                result.Add(temp);
+            }
+
+            return result;
         }
 
         /// <summary>
