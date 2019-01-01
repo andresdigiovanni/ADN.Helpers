@@ -34,7 +34,7 @@ namespace ADN.Helpers.Data
                 return true;
             }
 
-            if (ReferenceEquals(first, null) || ReferenceEquals(second, null))
+            if (first is null || second is null)
             {
                 return false;
             }
@@ -102,7 +102,7 @@ namespace ADN.Helpers.Data
         public static T[] SetAllValues<T>(this T[] array, T value)
         {
             // Check arguments
-            if (ReferenceEquals(array, null) || array.Length <= 0)
+            if (array is null || array.Length <= 0)
             {
                 throw (new ArgumentNullException("array"));
             }
@@ -138,7 +138,7 @@ namespace ADN.Helpers.Data
         public static IEnumerable<T[]> SplitByNumberOfDivisions<T>(this T[] array, int numberOfDivisions)
         {
             // Check arguments
-            if (ReferenceEquals(array, null))
+            if (array is null)
             {
                 throw (new ArgumentNullException("array"));
             }
@@ -186,7 +186,7 @@ namespace ADN.Helpers.Data
         public static IEnumerable<T[]> SplitByNumberOfElementsInDivision<T>(this T[] array, int elementsInDivision)
         {
             // Check arguments
-            if (ReferenceEquals(array, null))
+            if (array is null)
             {
                 throw (new ArgumentNullException("array"));
             }
@@ -234,7 +234,7 @@ namespace ADN.Helpers.Data
         public static T[] SubArray<T>(this T[] array, int index, int length)
         {
             // Check arguments
-            if (ReferenceEquals(array, null) || array.Length <= 0)
+            if (array is null || array.Length <= 0)
             {
                 throw (new ArgumentNullException("array"));
             }
