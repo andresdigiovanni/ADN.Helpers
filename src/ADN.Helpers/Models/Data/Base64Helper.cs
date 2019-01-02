@@ -17,14 +17,14 @@ namespace ADN.Helpers.Data
         /// <example>
         /// <code lang="csharp">
         /// var value = "0123456789";
-        /// var result = Base64Helper.Encode(value);
+        /// var result = value.Base64Encode();
         /// 
         /// /*
         /// result is "MDEyMzQ1Njc4OQ=="
         /// */
         /// </code>
         /// </example>
-        public static string Encode(string plainText)
+        public static string Base64Encode(this string plainText)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             return Convert.ToBase64String(plainTextBytes);
@@ -38,14 +38,14 @@ namespace ADN.Helpers.Data
         /// <example>
         /// <code lang="csharp">
         /// var value = "MDEyMzQ1Njc4OQ==";
-        /// var result = Base64Helper.Decode(value);
+        /// var result = value.Base64Decode();
         /// 
         /// /*
         /// result is "0123456789"
         /// */
         /// </code>
         /// </example>
-        public static string Decode(string base64EncodedData)
+        public static string Base64Decode(this string base64EncodedData)
         {
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return Encoding.UTF8.GetString(base64EncodedBytes);

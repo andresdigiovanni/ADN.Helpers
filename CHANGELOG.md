@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Methods to ArrayHelper class.
 
+### Changed
+- Rename functions Encode and Decode in Base64Helper to Base64Encode and Base64Decode respectively.
+
 ## [1.3.0] - 2018-11-25
 ### Added
 - Helpers classes: EnumHelper.
