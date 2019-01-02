@@ -13,6 +13,18 @@ namespace ADN.Helpers.Data
         /// <param name="value">A double-precision floating-point number to be rounded.</param>
         /// <param name="step">Step number to round.</param>
         /// <returns>The number nearest to value that is multiple of the given step.</returns>
+        /// <exception cref="DivideByZeroException">step is zero.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// double value = 12;
+        /// int step = 5;
+        /// var result = IntegerHelper.RoundNumber(value, step);
+        /// 
+        /// /*
+        /// result is 10
+        /// */
+        /// </code>
+        /// </example>
         public static int RoundNumber(double value, int step)
         {
             if (step == 0)
@@ -31,6 +43,20 @@ namespace ADN.Helpers.Data
         /// <param name="min">Minimum value.</param>
         /// <param name="max">Maximum value.</param>
         /// <returns>The number nearest to value that is multiple of the given step and within the determined range.</returns>
+        /// <exception cref="DivideByZeroException">step is zero.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// double value = 12;
+        /// int step = 5;
+        /// int min = 0;
+        /// int max = 20;
+        /// var result = IntegerHelper.RoundNumber(value, step, min, max);
+        /// 
+        /// /*
+        /// result is 10
+        /// */
+        /// </code>
+        /// </example>
         public static int RoundNumber(double value, int step, int min, int max)
         {
             value = RoundNumber(value, step);

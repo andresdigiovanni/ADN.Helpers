@@ -30,7 +30,7 @@ namespace ADN.Helpers.Data
         public static string BytesToHexa(byte[] bytes, string separator = "")
         {
             // Check arguments
-            if (ReferenceEquals(bytes, null))
+            if (bytes is null)
             {
                 throw (new ArgumentNullException("bytes"));
             }

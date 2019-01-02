@@ -16,6 +16,23 @@ namespace ADN.Helpers.Data
         /// <param name="name">Enum text value.</param>
         /// <param name="ignoreCase">Ignore case sensitive.</param>
         /// <returns>Enum value.</returns>
+        /// <exception cref="ArgumentException">name is not a value in enumType.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// enum Foo
+        /// {
+        ///     A, B, C, D
+        /// }
+        /// var value = "A";
+        /// var type = typeof(Foo);
+        /// var ignoreCase = true;
+        /// var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
+        /// 
+        /// /*
+        /// result is Foo.A
+        /// */
+        /// </code>
+        /// </example>
         public static Enum GetEnumValue(Type enumType, string name, bool ignoreCase = false)
         {
             int index;
@@ -32,7 +49,7 @@ namespace ADN.Helpers.Data
 
             if (index < 0)
             {
-                throw new ArgumentException("\"" + name + "\" is not a value in " + enumType, "name");
+                throw new ArgumentException($"{name} is not a value in {enumType}", "name");
             }
 
             return (Enum)Enum.GetValues(enumType).GetValue(index);
