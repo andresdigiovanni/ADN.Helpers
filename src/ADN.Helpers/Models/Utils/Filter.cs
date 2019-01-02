@@ -9,7 +9,7 @@ namespace ADN.Helpers.Utils
     /// </summary>
     public class Filter
     {
-        private int _filterLength;
+        private readonly int _filterLength;
         private Queue<double> _queueData = new Queue<double>();
         private double _mean = 0;
 

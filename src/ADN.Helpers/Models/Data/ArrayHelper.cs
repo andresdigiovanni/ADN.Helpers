@@ -20,7 +20,7 @@ namespace ADN.Helpers.Data
         /// <code lang="csharp">
         /// var first= new double[] { 0, 0, 0, 0, 0 };
         /// var second = new double[] { 0, 0, 0, 0, 0 };
-        /// var result = ArrayHelper.ArrayEqual(first, second);
+        /// var result = first.ArrayEqual(second);
         /// 
         /// /*
         /// result is true
@@ -66,14 +66,14 @@ namespace ADN.Helpers.Data
         /// <code lang="csharp">
         /// var first= new double[] { 0, 1, 2 };
         /// var second = new double[] { 3, 4, 5 };
-        /// var result = ArrayHelper.Combine(first, second);
+        /// var result = first.Combine(second);
         /// 
         /// /*
         /// result contains the values { 0, 1, 2, 3, 4, 5 }
         /// */
         /// </code>
         /// </example>
-        public static T[] Combine<T>(T[] first, T[] second)
+        public static T[] Combine<T>(this T[] first, T[] second)
         {
             T[] result = new T[first.Length + second.Length];
             Array.Copy(first, 0, result, 0, first.Length);
@@ -224,7 +224,7 @@ namespace ADN.Helpers.Data
         /// var array = new double[] { 0, 1, 2, 3, 4, 5 };
         /// var index = 1;
         /// var length = 4;
-        /// var result = ArrayHelper.SubArray(array, index, length);
+        /// var result = array.SubArray(index, length);
         /// 
         /// /*
         /// result contains the values { 1, 2, 3, 4 }

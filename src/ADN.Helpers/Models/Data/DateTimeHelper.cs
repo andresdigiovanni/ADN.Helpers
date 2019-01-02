@@ -17,14 +17,14 @@ namespace ADN.Helpers.Data
         /// <example>
         /// <code lang="csharp">
         /// DateTime date = DateTime.Parse("02/16/2008 12:15:12", new CultureInfo("en-US"));
-        /// var result = DateTimeHelper.DateTimeToUnixTimeStamp(date);
+        /// var result = date.DateTimeToUnixTimeStamp();
         /// 
         /// /*
         /// result is 1203164112
         /// */
         /// </code>
         /// </example>
-        public static long DateTimeToUnixTimeStamp(DateTime date)
+        public static long DateTimeToUnixTimeStamp(this DateTime date)
         {
             long unixTimestamp = date.Ticks - new DateTime(1970, 1, 1).Ticks;
             unixTimestamp /= TimeSpan.TicksPerSecond;
@@ -39,14 +39,15 @@ namespace ADN.Helpers.Data
         /// <returns>The DateTime.</returns>
         /// <example>
         /// <code lang="csharp">
-        /// var result = DateTimeHelper.UnixTimeStampToDateTime(1203164112).ToString("MM/dd/yyyy HH:mm:ss");
+        /// long unixTimestamp = 1203164112;
+        /// var result = unixTimestamp.UnixTimeStampToDateTime().ToString("MM/dd/yyyy HH:mm:ss");
         /// 
         /// /*
         /// result is 02/16/2008 12:15:12
         /// */
         /// </code>
         /// </example>
-        public static DateTime UnixTimeStampToDateTime(long unixTimestamp)
+        public static DateTime UnixTimeStampToDateTime(this long unixTimestamp)
         {
             DateTime date = new DateTime(1970, 1, 1);
             long unixTimeStampInTicks = unixTimestamp * TimeSpan.TicksPerSecond;

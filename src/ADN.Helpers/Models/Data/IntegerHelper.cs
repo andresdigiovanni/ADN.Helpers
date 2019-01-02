@@ -18,14 +18,14 @@ namespace ADN.Helpers.Data
         /// <code lang="csharp">
         /// double value = 12;
         /// int step = 5;
-        /// var result = IntegerHelper.RoundNumber(value, step);
+        /// var result = value.RoundNumber(step);
         /// 
         /// /*
         /// result is 10
         /// */
         /// </code>
         /// </example>
-        public static int RoundNumber(double value, int step)
+        public static int RoundNumber(this double value, int step)
         {
             if (step == 0)
             {
@@ -50,14 +50,14 @@ namespace ADN.Helpers.Data
         /// int step = 5;
         /// int min = 0;
         /// int max = 20;
-        /// var result = IntegerHelper.RoundNumber(value, step, min, max);
+        /// var result = value.RoundNumber(step, min, max);
         /// 
         /// /*
         /// result is 10
         /// */
         /// </code>
         /// </example>
-        public static int RoundNumber(double value, int step, int min, int max)
+        public static int RoundNumber(this double value, int step, int min, int max)
         {
             value = RoundNumber(value, step);
 

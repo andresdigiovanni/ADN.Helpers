@@ -13,7 +13,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(ArrayEqualData))]
         public void ArrayEqual(double[] first, double[] second, bool expected)
         {
-            var result = ArrayHelper.ArrayEqual(first, second);
+            var result = first.ArrayEqual(second);
 
             Assert.Equal(expected, result);
         }
@@ -22,7 +22,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(CombineData))]
         public void Combine(double[] first, double[] second, double[] expected)
         {
-            var result = ArrayHelper.Combine(first, second);
+            var result = first.Combine(second);
 
             Assert.Equal(expected, result);
         }
@@ -96,7 +96,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(SubArrayData))]
         public void SubArray(double[] value, int index, int length, double[] expected)
         {
-            var result = ArrayHelper.SubArray(value, index, length);
+            var result = value.SubArray(index, length);
 
             Assert.Equal(expected, result);
         }

@@ -20,14 +20,14 @@ namespace ADN.Helpers.Data
         /// <code lang="csharp">
         /// var array = new byte[] { 48, 49, 50, 51, 52 };
         /// var separator = "-";
-        /// var result = ByteHelper.BytesToHexa(array, separator);
+        /// var result = array.BytesToHexa(separator);
         /// 
         /// /*
         /// result is "30-31-32-33-34"
         /// */
         /// </code>
         /// </example>
-        public static string BytesToHexa(byte[] bytes, string separator = "")
+        public static string BytesToHexa(this byte[] bytes, string separator = "")
         {
             // Check arguments
             if (bytes is null)
@@ -59,14 +59,14 @@ namespace ADN.Helpers.Data
         /// <code lang="csharp">
         /// var value = "30-31-32-33-34";
         /// var separator = "-";
-        /// var result = ByteHelper.HexaToBytes(value, separator);
+        /// var result = value.HexaToBytes(separator);
         /// 
         /// /*
         /// result contains the values { 48, 49, 50, 51, 52 }
         /// */
         /// </code>
         /// </example>
-        public static byte[] HexaToBytes(string value, string separator = "")
+        public static byte[] HexaToBytes(this string value, string separator = "")
         {
             List<byte> bytes = new List<byte>();
             if (separator != "")
@@ -91,14 +91,14 @@ namespace ADN.Helpers.Data
         /// <example>
         /// <code lang="csharp">
         /// var array = new byte[] { 48, 49, 50, 51, 52 };
-        /// var result = ByteHelper.BytesToString(array);
+        /// var result = array.BytesToString();
         /// 
         /// /*
         /// result is "01234"
         /// */
         /// </code>
         /// </example>
-        public static string BytesToString(byte[] bytes)
+        public static string BytesToString(this byte[] bytes)
         {
             return Encoding.UTF8.GetString(bytes);
         }
@@ -112,14 +112,14 @@ namespace ADN.Helpers.Data
         /// <example>
         /// <code lang="csharp">
         /// var value = "01234";
-        /// var result = ByteHelper.StringToBytes(value);
+        /// var result = value.StringToBytes();
         /// 
         /// /*
         /// result contains the values { 48, 49, 50, 51, 52 }
         /// */
         /// </code>
         /// </example>
-        public static byte[] StringToBytes(string value)
+        public static byte[] StringToBytes(this string value)
         {
             return Encoding.UTF8.GetBytes(value);
         }

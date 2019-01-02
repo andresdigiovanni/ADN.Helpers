@@ -29,7 +29,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData(0, 5, 0)]
         public void RoundNumber_Valid(double value, int step, int expected)
         {
-            var result = IntegerHelper.RoundNumber(value, step);
+            var result = value.RoundNumber(step);
 
             Assert.Equal(expected, result);
         }
@@ -55,7 +55,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData(12, 2, 12, 20, 12)]
         public void RoundNumber_WithStep_Valid(double value, int step, int min, int max, int expected)
         {
-            var result = IntegerHelper.RoundNumber(value, step, min, max);
+            var result = value.RoundNumber(step, min, max);
 
             Assert.Equal(expected, result);
         }

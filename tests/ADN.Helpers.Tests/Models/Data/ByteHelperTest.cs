@@ -13,7 +13,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(BytesToHexaData))]
         public void BytesToHexa(byte[] value, string separator, string expected)
         {
-            var result = ByteHelper.BytesToHexa(value, separator);
+            var result = value.BytesToHexa(separator);
 
             Assert.Equal(expected, result);
         }
@@ -30,7 +30,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(HexaToBytesData))]
         public void HexaToBytes(string value, string separator, byte[] expected)
         {
-            var result = ByteHelper.HexaToBytes(value, separator);
+            var result = value.HexaToBytes(separator);
 
             Assert.Equal(expected, result);
         }
@@ -39,7 +39,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(BytesToStringData))]
         public void BytesToString(byte[] value, string expected)
         {
-            var result = ByteHelper.BytesToString(value);
+            var result = value.BytesToString();
 
             Assert.Equal(expected, result);
         }
@@ -56,7 +56,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(StringToBytesData))]
         public void StringToBytes(string value, byte[] expected)
         {
-            var result = ByteHelper.StringToBytes(value);
+            var result = value.StringToBytes();
 
             Assert.Equal(expected, result);
         }

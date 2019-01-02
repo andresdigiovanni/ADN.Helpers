@@ -18,7 +18,7 @@ namespace ADN.Helpers.Data
         public static int IndexOfMax<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count <= 0)
+            if (values is null || values.Count <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
@@ -47,7 +47,7 @@ namespace ADN.Helpers.Data
         public static int IndexOfMin<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count <= 0)
+            if (values is null || values.Count <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
@@ -75,7 +75,7 @@ namespace ADN.Helpers.Data
         public static void Shuffle<T>(this IList<T> values)
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count <= 0)
+            if (values is null || values.Count <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
@@ -101,7 +101,7 @@ namespace ADN.Helpers.Data
         public static double Median(this IEnumerable<double> values)
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count() <= 0)
+            if (values is null || values.Count() <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
@@ -125,7 +125,7 @@ namespace ADN.Helpers.Data
         public static double Mean(this List<double> values)
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count <= 0)
+            if (values is null || values.Count <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
@@ -143,7 +143,7 @@ namespace ADN.Helpers.Data
         public static double Mean(this List<double> values, int start, int end)
         {
             // Check arguments
-            if (ReferenceEquals(values, null) || values.Count <= 0)
+            if (values is null || values.Count <= 0)
             {
                 throw (new ArgumentNullException("values"));
             }
