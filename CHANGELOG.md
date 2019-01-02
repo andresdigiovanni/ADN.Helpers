@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Methods to ArrayHelper class.
+- Helpers classes: DataTableHelper.
 
 ### Changed
 - Rename functions Encode and Decode in Base64Helper to Base64Encode and Base64Decode respectively.
