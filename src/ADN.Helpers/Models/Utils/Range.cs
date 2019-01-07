@@ -16,7 +16,24 @@ namespace ADN.Helpers.Utils
         /// <param name="min2">Minimum value of the second rank.</param>
         /// <param name="maxR">Maximum value of the intersection range.</param>
         /// <param name="minR">Minimum value of the intersection range.</param>
-        /// <returns></returns>
+        /// <returns>True if intersection exists, false otherwise.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// double max1 = 20;
+        /// double min1 = 15;
+        /// double max2 = 21;
+        /// double min2 = 16;
+        /// double maxRresult;
+        /// double minRresult;
+        /// var result = Range.Intersection(max1, min1, max2, min2, out maxRresult, out minRresult);
+        /// 
+        /// /*
+        /// result is true
+        /// maxRresult is 20
+        /// minRresult is 16
+        /// */
+        /// </code>
+        /// </example>
         public static bool Intersection(double max1, double min1, double max2, double min2, out double maxR, out double minR)
         {
             bool intersection;

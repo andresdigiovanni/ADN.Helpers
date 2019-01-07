@@ -15,7 +15,18 @@ namespace ADN.Helpers.Data
         /// <param name="str">String expression from which the leftmost characters are returned.</param>
         /// <param name="length">Numeric expression indicating how many characters to return.</param>
         /// <returns>Returns a string containing a specified number of characters from the left side of a string.</returns>
-        public static string Left(string str, int length)
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "abcdefghij";
+        /// var length = 5;
+        /// var result = value.Left(length);
+        /// 
+        /// /*
+        /// result is "abcde"
+        /// */
+        /// </code>
+        /// </example>
+        public static string Left(this string str, int length)
         {
             return (str.Length <= length) ? str : str.Substring(0, length);
         }
@@ -27,7 +38,19 @@ namespace ADN.Helpers.Data
         /// <param name="startIndex">Starting position of the characters to return.</param>
         /// <param name="length">Number of characters to return.</param>
         /// <returns>A string that consists of the specified number of characters starting from the specified position in the string.</returns>
-        public static string Mid(string str, int startIndex, int length)
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "abcdefghij";
+        /// var startIndex = 3;
+        /// var length = 5;
+        /// var result = value.Mid(startIndex, length);
+        /// 
+        /// /*
+        /// result is "defgh"
+        /// */
+        /// </code>
+        /// </example>
+        public static string Mid(this string str, int startIndex, int length)
         {
             if (str.Length < startIndex) return "";
 
@@ -41,7 +64,18 @@ namespace ADN.Helpers.Data
         /// <param name="str">String expression from which the rightmost characters are returned.</param>
         /// <param name="length">Numeric expression indicating how many characters to return.</param>
         /// <returns>Returns a string containing a specified number of characters from the right side of a string.</returns>
-        public static string Right(string str, int length)
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = "abcdefghij";
+        /// var length = 5;
+        /// var result = value.Right(length);
+        /// 
+        /// /*
+        /// result is "fghij"
+        /// */
+        /// </code>
+        /// </example>
+        public static string Right(this string str, int length)
         {
             return (str.Length <= length) ? str : str.Substring(str.Length - length, length);
         }

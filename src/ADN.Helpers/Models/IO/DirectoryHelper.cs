@@ -19,6 +19,15 @@ namespace ADN.Helpers.IO
         /// <remarks>
         /// This method check if is posible to override a file and retry it
         /// </remarks>
+        /// <exception cref="DirectoryNotFoundException">Source directory does not exist or could not be found.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var source = "sourceDir";
+        /// var destination = "destDir";
+        /// var overwrite = true;
+        /// DirectoryHelper.CopyDirectory(source, destination, overwrite);
+        /// </code>
+        /// </example>
         public static void CopyDirectory(string source, string destination, bool overwrite = false)
         {
             // Get the subdirectories for the specified directory.

@@ -17,7 +17,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData("abcdefghij", 15, "abcdefghij")]
         public void Left(string value, int length, string expected)
         {
-            var result = StringHelper.Left(value, length);
+            var result = value.Left(length);
             Assert.Equal(expected, result);
         }
 
@@ -28,7 +28,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData("abcdefghij", 5, 15, "fghij")]
         public void Mid(string value, int startIndex, int length, string expected)
         {
-            var result = StringHelper.Mid(value, startIndex, length);
+            var result = value.Mid(startIndex, length);
             Assert.Equal(expected, result);
         }
 
@@ -39,7 +39,7 @@ namespace ADN.Helpers.Tests.Data
         [InlineData("abcdefghij", 15, "abcdefghij")]
         public void Right(string value, int length, string expected)
         {
-            var result = StringHelper.Right(value, length);
+            var result = value.Right(length);
             Assert.Equal(expected, result);
         }
     }

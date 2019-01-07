@@ -16,6 +16,17 @@ namespace ADN.Helpers.IO
         /// <param name="file">File name.</param>
         /// <param name="fileAccess">File access.</param>
         /// <returns>True if file is open, false otherwise.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var file= "foo";
+        /// var fileAccess = FileAccess.ReadWrite;
+        /// var fileIsOpen = FileHelper.IsFileOpen(file, fileAccess)
+        /// 
+        /// /*
+        /// fileIsOpen is true if file is open, false otherwise.
+        /// */
+        /// </code>
+        /// </example>
         public static bool IsFileOpen(string file, FileAccess fileAccess = FileAccess.ReadWrite)
         {
             try
