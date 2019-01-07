@@ -15,6 +15,17 @@ namespace ADN.Helpers.Data
         /// <typeparam name="T">The type of the elements of the list.</typeparam>
         /// <param name="values">The list of elements.</param>
         /// <returns>Index of the maximum value of the list.</returns>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new double[] { 10, 11, 12, 13, 12, 11, 10 };
+        /// var result = values.IndexOfMax();
+        /// 
+        /// /*
+        /// result is 3
+        /// */
+        /// </code>
+        /// </example>
         public static int IndexOfMax<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -44,6 +55,17 @@ namespace ADN.Helpers.Data
         /// <typeparam name="T">The type of the elements of the list.</typeparam>
         /// <param name="values">The list of elements.</param>
         /// <returns>Index of the minimum value of the list.</returns>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new double[] { 13, 12, 11, 10, 11, 12, 13 };
+        /// var result = values.IndexOfMin();
+        /// 
+        /// /*
+        /// result is 3
+        /// */
+        /// </code>
+        /// </example>
         public static int IndexOfMin<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -72,6 +94,13 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <typeparam name="T">The type of the elements of the list.</typeparam>
         /// <param name="values">The list of elements.</param>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new double[] { 0, 1, 2, 3, 4, 5 };
+        /// values.Shuffle();
+        /// </code>
+        /// </example>
         public static void Shuffle<T>(this IList<T> values)
         {
             // Check arguments
@@ -98,6 +127,17 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="values">The list of elements.</param>
         /// <returns>Index of the middle element.</returns>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new double[] { 2, 3, 5, 1, 4 };
+        /// var result = values.Median();
+        /// 
+        /// /*
+        /// result is 3
+        /// */
+        /// </code>
+        /// </example>
         public static double Median(this IEnumerable<double> values)
         {
             // Check arguments
@@ -122,6 +162,17 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="values">The list of elements.</param>
         /// <returns>Mean of the values.</returns>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.Mean();
+        /// 
+        /// /*
+        /// result is 4.5
+        /// */
+        /// </code>
+        /// </example>
         public static double Mean(this List<double> values)
         {
             // Check arguments
@@ -140,6 +191,20 @@ namespace ADN.Helpers.Data
         /// <param name="start">Start index.</param>
         /// <param name="end">End index.</param>
         /// <returns>Mean of the values.</returns>
+        /// <exception cref="ArgumentNullException">List is null or empty.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Start or end out of range.</exception>
+        /// <example>
+        /// <code lang="csharp">
+        /// int start = 0;
+        /// int end = 5;
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.Mean(start, end);
+        /// 
+        /// /*
+        /// result is 2.5
+        /// */
+        /// </code>
+        /// </example>
         public static double Mean(this List<double> values, int start, int end)
         {
             // Check arguments
@@ -178,6 +243,12 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="values">The list of elements.</param>
         /// <returns>Variance of values.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.Variance();
+        /// </code>
+        /// </example>
         public static double Variance(this List<double> values)
         {
             return values.Variance(values.Mean(), 0, values.Count);
@@ -189,6 +260,13 @@ namespace ADN.Helpers.Data
         /// <param name="values">The list of elements.</param>
         /// <param name="mean">The mean of the values of the list.</param>
         /// <returns>Variance of values.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// double mean = 2.5;
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.Variance(mean);
+        /// </code>
+        /// </example>
         public static double Variance(this List<double> values, double mean)
         {
             return values.Variance(mean, 0, values.Count);
@@ -202,6 +280,15 @@ namespace ADN.Helpers.Data
         /// <param name="start">Start index.</param>
         /// <param name="end">End index.</param>
         /// <returns>Variance of values.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// int start = 0;
+        /// int end = 5;
+        /// double mean = 2.5;
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.Variance(mean, start, end);
+        /// </code>
+        /// </example>
         public static double Variance(this List<double> values, double mean, int start, int end)
         {
             double variance = 0;
@@ -222,6 +309,12 @@ namespace ADN.Helpers.Data
         /// </summary>
         /// <param name="values">The list of elements.</param>
         /// <returns>Standard deviation.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.StandardDeviation();
+        /// </code>
+        /// </example>
         public static double StandardDeviation(this List<double> values)
         {
             return values.Count == 0 ? 0 : values.StandardDeviation(0, values.Count);
@@ -234,6 +327,14 @@ namespace ADN.Helpers.Data
         /// <param name="start">Start index.</param>
         /// <param name="end">End index.</param>
         /// <returns>Standard deviation.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// int start = 0;
+        /// int end = 5;
+        /// var values = new List<double>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        /// var result = values.StandardDeviation(start, end);
+        /// </code>
+        /// </example>
         public static double StandardDeviation(this List<double> values, int start, int end)
         {
             double mean = values.Mean(start, end);

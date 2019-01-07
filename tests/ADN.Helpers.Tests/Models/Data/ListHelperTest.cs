@@ -15,7 +15,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(IndexOfMaxData))]
         public void IndexOfMax(double[] values, int expected)
         {
-            var result = ListHelper.IndexOfMax(values);
+            var result = values.IndexOfMax();
 
             Assert.Equal(expected, result);
         }
@@ -30,14 +30,14 @@ namespace ADN.Helpers.Tests.Data
         public void IndexOfMax_Exception_Value_Null()
         {
             List<double> list = null;
-            Assert.Throws<ArgumentNullException>(() => ListHelper.IndexOfMax(list));
+            Assert.Throws<ArgumentNullException>(() => list.IndexOfMax());
         }
 
         [Theory]
         [ClassData(typeof(IndexOfMinData))]
         public void IndexOfMin(double[] values, int expected)
         {
-            var result = ListHelper.IndexOfMin(values);
+            var result = values.IndexOfMin();
 
             Assert.Equal(expected, result);
         }
@@ -52,7 +52,7 @@ namespace ADN.Helpers.Tests.Data
         public void IndexOfMin_Exception_Value_Null()
         {
             List<double> list = null;
-            Assert.Throws<ArgumentNullException>(() => ListHelper.IndexOfMin(list));
+            Assert.Throws<ArgumentNullException>(() => list.IndexOfMin());
         }
 
         [Theory]
@@ -141,7 +141,7 @@ namespace ADN.Helpers.Tests.Data
         [ClassData(typeof(MedianData))]
         public void Median(double[] values, double expected)
         {
-            var result = ListHelper.Median(values);
+            var result = values.Median();
 
             Assert.Equal(expected, result);
         }
@@ -164,7 +164,7 @@ namespace ADN.Helpers.Tests.Data
         {
             List<double> list = new List<double>();
             list.AddRange(values);
-            var result = ListHelper.Mean(list);
+            var result = list.Mean();
 
             Assert.Equal(expected, result);
         }
@@ -173,7 +173,7 @@ namespace ADN.Helpers.Tests.Data
         public void Mean_Exception_Value_Empty()
         {
             List<double> list = new List<double>();
-            Assert.Throws<ArgumentNullException>(() => ListHelper.Mean(list));
+            Assert.Throws<ArgumentNullException>(() => list.Mean());
         }
 
         [Fact]
@@ -188,7 +188,7 @@ namespace ADN.Helpers.Tests.Data
         {
             List<double> list = new List<double>();
             list.AddRange(values);
-            var result = ListHelper.Mean(list, start, end);
+            var result = list.Mean(start, end);
 
             Assert.Equal(expected, result);
         }
@@ -197,7 +197,7 @@ namespace ADN.Helpers.Tests.Data
         public void MeanDelimited_Exception_Value_Empty()
         {
             List<double> list = new List<double>();
-            Assert.Throws<ArgumentNullException>(() => ListHelper.Mean(list, 0, 0));
+            Assert.Throws<ArgumentNullException>(() => list.Mean(0, 0));
         }
 
         [Fact]
@@ -210,35 +210,35 @@ namespace ADN.Helpers.Tests.Data
         public void MeanDelimited_Exception_Start_OutOfRange()
         {
             List<double> list = new List<double>() { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ListHelper.Mean(list, 1, 0));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Mean(1, 0));
         }
 
         [Fact]
         public void MeanDelimited_Exception_Start_OutOfRange_Bottom()
         {
             List<double> list = new List<double>() { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ListHelper.Mean(list, -1, 1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Mean(-1, 1));
         }
 
         [Fact]
         public void MeanDelimited_Exception_Start_OutOfRange_Up()
         {
             List<double> list = new List<double>() { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ListHelper.Mean(list, 2, 1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Mean(2, 1));
         }
 
         [Fact]
         public void MeanDelimited_Exception_End_OutOfRange_Bottom()
         {
             List<double> list = new List<double>() { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ListHelper.Mean(list, 0, -1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Mean(0, -1));
         }
 
         [Fact]
         public void MeanDelimited_Exception_End_OutOfRange_Up()
         {
             List<double> list = new List<double>() { 0, 1 };
-            Assert.Throws<ArgumentOutOfRangeException>(() => ListHelper.Mean(list, 0, 2));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.Mean(0, 2));
         }
 
         public class IndexOfMaxData : IEnumerable<object[]>

@@ -1,0 +1,713 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADN.Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:ADN.Helpers.Data.ArrayHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Array"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.ArrayEqual``1(``0[],``0[])">
+            <summary>
+            Checks if the Arrays are equal.
+            </summary>
+            <typeparam name="T">Array type.</typeparam>
+            <param name="first">The <see cref="T:System.Array"/> that contains data to compare with.</param>
+            <param name="second">The <see cref="T:System.Array"/> that contains data to compare to.</param>
+            <returns>Returns <c>true</c> if all element match and <c>false</c> otherwise.</returns>
+            <example>
+            <code lang="csharp">
+            var first= new double[] { 0, 0, 0, 0, 0 };
+            var second = new double[] { 0, 0, 0, 0, 0 };
+            var result = first.ArrayEqual(second);
+            
+            /*
+            result is true
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.Combine``1(``0[],``0[])">
+            <summary>
+            Combine the Arrays.
+            </summary>
+            <typeparam name="T">Array type.</typeparam>
+            <param name="first">First element to combine.</param>
+            <param name="second">Second element to combine.</param>
+            <returns>T[].</returns>
+            <example>
+            <code lang="csharp">
+            var first= new double[] { 0, 1, 2 };
+            var second = new double[] { 3, 4, 5 };
+            var result = first.Combine(second);
+            
+            /*
+            result contains the values { 0, 1, 2, 3, 4, 5 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.SetAllValues``1(``0[],``0)">
+            <summary>
+            Sets all values.
+            </summary>
+            <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
+            <param name="array">The one-dimensional, zero-based array.</param>
+            <param name="value">The value.</param>
+            <returns>A reference to the changed array.</returns>
+            <exception cref="T:System.ArgumentNullException">Array is null or empty.</exception>
+            <example>
+            <code lang="csharp">
+            var array = new double[] { 0, 0, 0, 0, 0 };
+            var result = array.SetAllValues(1);
+            
+            /*
+            result contains the values { 1, 1, 1, 1, 1 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.SplitByNumberOfDivisions``1(``0[],System.Int32)">
+            <summary>
+            Split an array into subarrays by specifying the number of divisions.
+            </summary>
+            <typeparam name="T">The type of the elements of the array that will be split.</typeparam>
+            <param name="array">Array to split.</param>
+            <param name="numberOfDivisions">Number of divisions.</param>
+            <returns>Subarrays.</returns>
+            <exception cref="T:System.ArgumentNullException">Array is null or empty.</exception>
+            <exception cref="T:System.DivideByZeroException">Number of divisions is zero.</exception>
+            <example>
+            <code lang="csharp">
+            var array = new double[] { 0, 1, 2 };
+            var numberOfDivisions = 2;
+            var result = array.SplitByNumberOfDivisions(numberOfDivisions);
+            
+            /*
+            result contains the values { { 0, 1 }, { 2 } }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.SplitByNumberOfElementsInDivision``1(``0[],System.Int32)">
+            <summary>
+            Split an array into subarrays by specifying the number of elements in each division.
+            </summary>
+            <typeparam name="T">The type of the elements of the array that will be split.</typeparam>
+            <param name="array">Array to split.</param>
+            <param name="elementsInDivision">Elements in each division.</param>
+            <returns>Subarrays.</returns>
+            <exception cref="T:System.ArgumentNullException">Array is null or empty.</exception>
+            <exception cref="T:System.DivideByZeroException">Number of elements in division is zero.</exception>
+            <example>
+            <code lang="csharp">
+            var array = new double[] { 0, 1, 2 };
+            var elementsInDivision = 2;
+            var result = array.SplitByNumberOfElementsInDivision(elementsInDivision);
+            
+            /*
+            result contains the values { { 0, 1 }, { 2 } }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ArrayHelper.SubArray``1(``0[],System.Int32,System.Int32)">
+            <summary>
+            Subs the array.
+            </summary>
+            <typeparam name="T">The type of the elements of the array that will be modified.</typeparam>
+            <param name="array">The data.</param>
+            <param name="index">The index.</param>
+            <param name="length">The length.</param>
+            <returns>T[].</returns>
+            <exception cref="T:System.ArgumentNullException">array is null or empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index or length is out of range.</exception>
+            <example>
+            <code lang="csharp">
+            var array = new double[] { 0, 1, 2, 3, 4, 5 };
+            var index = 1;
+            var length = 4;
+            var result = array.SubArray(index, length);
+            
+            /*
+            result contains the values { 1, 2, 3, 4 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.Base64Helper">
+            <summary>
+            A static class of methods for Base64 strings.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.Base64Helper.Base64Encode(System.String)">
+            <summary>
+            Converts the value of a plain text string to its equivalent string representation that is encoded with base-64 digits.
+            </summary>
+            <param name="plainText">Plain text string.</param>
+            <returns>String encoded with base-64 digits.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "0123456789";
+            var result = value.Base64Encode();
+            
+            /*
+            result is "MDEyMzQ1Njc4OQ=="
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.Base64Helper.Base64Decode(System.String)">
+            <summary>
+            Converts the specified string, which encodes binary data as base-64 digits, to an equivalent plain text string.
+            </summary>
+            <param name="base64EncodedData">String encoded with base-64 digits.</param>
+            <returns>Plain text string.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "MDEyMzQ1Njc4OQ==";
+            var result = value.Base64Decode();
+            
+            /*
+            result is "0123456789"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.ByteHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Byte"/> <see cref="T:System.Array"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.ByteHelper.BytesToHexa(System.Byte[],System.String)">
+            <summary>
+            Converts the numeric value of a byte array to its equivalent hexadecimal string.
+            </summary>
+            <param name="bytes">The value.</param>
+            <param name="separator">Hexadecimal values separator.</param>
+            <returns>Hexadecimal string.</returns>
+            <exception cref="T:System.ArgumentNullException">bytes is null</exception>
+            <example>
+            <code lang="csharp">
+            var array = new byte[] { 48, 49, 50, 51, 52 };
+            var separator = "-";
+            var result = array.BytesToHexa(separator);
+            
+            /*
+            result is "30-31-32-33-34"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ByteHelper.HexaToBytes(System.String,System.String)">
+            <summary>
+            Converts the hexadecimal string to its quivalent numeric value byte array.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="separator">Hexadecimal values separator.</param>
+            <returns>Byte array.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "30-31-32-33-34";
+            var separator = "-";
+            var result = value.HexaToBytes(separator);
+            
+            /*
+            result contains the values { 48, 49, 50, 51, 52 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ByteHelper.BytesToString(System.Byte[])">
+            <summary>
+            Decodes a sequence of bytes from the specified byte array into a string.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <returns>A string that contains the results of decoding the specified sequence of bytes.</returns>
+            <remarks>Equivalent to System.Text.Encoding.UTF8.GetString().</remarks>
+            <example>
+            <code lang="csharp">
+            var array = new byte[] { 48, 49, 50, 51, 52 };
+            var result = array.BytesToString();
+            
+            /*
+            result is "01234"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ByteHelper.StringToBytes(System.String)">
+            <summary>
+            Encodes a set of characters into a sequence of bytes.
+            </summary>
+            <param name="value">The character array containing the characters to encode.</param>
+            <returns>A byte array containing the results of encoding the specified set of characters.</returns>
+            <remarks>Equivalent to System.Text.Encoding.UTF8.GetBytes().</remarks>
+            <example>
+            <code lang="csharp">
+            var value = "01234";
+            var result = value.StringToBytes();
+            
+            /*
+            result contains the values { 48, 49, 50, 51, 52 }
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.DataTableHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Data.DataTable"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.DataTableHelper.ToHtmlTable(System.Data.DataTable)">
+            <summary>
+            Convert a DataTable to the equivalent HTML table.
+            </summary>
+            <param name="dataTable">DataTable to convert.</param>
+            <returns>HTML table.</returns>
+            <example>
+            <code lang="csharp">
+            DataTable table = new DataTable();
+            // populate table
+            var result = table.ToHtmlTable();
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.DateTimeHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.DateTimeHelper.DateTimeToUnixTimeStamp(System.DateTime)">
+            <summary>
+            Converts DateTime to unix time stamp.
+            </summary>
+            <param name="date">The DateTime.</param>
+            <returns>The unix time stamp.</returns>
+            <example>
+            <code lang="csharp">
+            DateTime date = DateTime.Parse("02/16/2008 12:15:12", new CultureInfo("en-US"));
+            var result = date.DateTimeToUnixTimeStamp();
+            
+            /*
+            result is 1203164112
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.DateTimeHelper.UnixTimeStampToDateTime(System.Int64)">
+            <summary>
+            Converts unix time stamp to DateTime.
+            </summary>
+            <param name="unixTimestamp">The unix time stamp.</param>
+            <returns>The DateTime.</returns>
+            <example>
+            <code lang="csharp">
+            long unixTimestamp = 1203164112;
+            var result = unixTimestamp.UnixTimeStampToDateTime().ToString("MM/dd/yyyy HH:mm:ss");
+            
+            /*
+            result is 02/16/2008 12:15:12
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.EnumHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Enum"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.EnumHelper.GetEnumValue(System.Type,System.String,System.Boolean)">
+            <summary>
+            Get enum value.
+            </summary>
+            <param name="enumType">Enum type.</param>
+            <param name="name">Enum text value.</param>
+            <param name="ignoreCase">Ignore case sensitive.</param>
+            <returns>Enum value.</returns>
+            <exception cref="T:System.ArgumentException">name is not a value in enumType.</exception>
+            <example>
+            <code lang="csharp">
+            enum Foo
+            {
+                A, B, C, D
+            }
+            var value = "A";
+            var type = typeof(Foo);
+            var ignoreCase = true;
+            var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
+            
+            /*
+            result is Foo.A
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.IntegerHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.IntegerHelper.RoundNumber(System.Double,System.Int32)">
+            <summary>
+            Rounds a value to the nearest integer with the given step.
+            </summary>
+            <param name="value">A double-precision floating-point number to be rounded.</param>
+            <param name="step">Step number to round.</param>
+            <returns>The number nearest to value that is multiple of the given step.</returns>
+            <exception cref="T:System.DivideByZeroException">step is zero.</exception>
+            <example>
+            <code lang="csharp">
+            double value = 12;
+            int step = 5;
+            var result = value.RoundNumber(step);
+            
+            /*
+            result is 10
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.IntegerHelper.RoundNumber(System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Rounds a value to the nearest integer with the given step and within the determined range.
+            </summary>
+            <param name="value">A double-precision floating-point number to be rounded.</param>
+            <param name="step">Step number to round.</param>
+            <param name="min">Minimum value.</param>
+            <param name="max">Maximum value.</param>
+            <returns>The number nearest to value that is multiple of the given step and within the determined range.</returns>
+            <exception cref="T:System.DivideByZeroException">step is zero.</exception>
+            <example>
+            <code lang="csharp">
+            double value = 12;
+            int step = 5;
+            int min = 0;
+            int max = 20;
+            var result = value.RoundNumber(step, min, max);
+            
+            /*
+            result is 10
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Data.ListHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.ListHelper.IndexOfMax``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Find the index of the maximum value of the list.
+            </summary>
+            <typeparam name="T">The type of the elements of the list.</typeparam>
+            <param name="values">The list of elements.</param>
+            <returns>Index of the maximum value of the list.</returns>
+            <exception cref="T:System.ArgumentNullException">List is null or empty.</exception>
+            <example>
+            <code lang="csharp">
+            var values = new double[] { 10, 11, 12, 13, 12, 11, 10 };
+            var result = values.IndexOfMax();
+            
+            /*
+            result is 3
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ListHelper.IndexOfMin``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Find the index of the minimum value of the list.
+            </summary>
+            <typeparam name="T">The type of the elements of the list.</typeparam>
+            <param name="values">The list of elements.</param>
+            <returns>Index of the minimum value of the list.</returns>
+            <exception cref="T:System.ArgumentNullException">List is null or empty.</exception>
+            <example>
+            <code lang="csharp">
+            var values = new double[] { 13, 12, 11, 10, 11, 12, 13 };
+            var result = values.IndexOfMin();
+            
+            /*
+            result is 3
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ListHelper.Shuffle``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Shuffle the elements of the list.
+            </summary>
+            <typeparam name="T">The type of the elements of the list.</typeparam>
+            <param name="values">The list of elements.</param>
+            <exception cref="T:System.ArgumentNullException">List is null or empty.</exception>
+            <example>
+            <code lang="csharp">
+            var values = new double[] { 0, 1, 2, 3, 4, 5 };
+            values.Shuffle();
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.ListHelper.Median(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Gets the value of the middle element of the list after sorted.
+            </summary>
+            <param name="values">The list of elements.</param>
+            <returns>Index of the middle element.</returns>
+            <exception cref="T:System.ArgumentNullException">List is null or empty.</exception>
+            <example>
+            <code lang="csharp">
+            var values = new double[] { 2, 3, 5, 1, 4 };
+            var result = values.Median();
+            
+            /*
+            result is 3
+            */
+            </code>
+            </example>
+        </member>
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.Mean(System.Collections.Generic.List{System.Double})" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.Mean(System.Collections.Generic.List{System.Double},System.Int32,System.Int32)" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.Variance(System.Collections.Generic.List{System.Double})" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.Variance(System.Collections.Generic.List{System.Double},System.Double)" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.Variance(System.Collections.Generic.List{System.Double},System.Double,System.Int32,System.Int32)" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.StandardDeviation(System.Collections.Generic.List{System.Double})" -->
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "M:ADN.Helpers.Data.ListHelper.StandardDeviation(System.Collections.Generic.List{System.Double},System.Int32,System.Int32)" -->
+        <member name="T:ADN.Helpers.Data.StringHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Data.StringHelper.Left(System.String,System.Int32)">
+            <summary>
+            Returns a string containing a specified number of characters from the left side of a string.
+            </summary>
+            <param name="str">String expression from which the leftmost characters are returned.</param>
+            <param name="length">Numeric expression indicating how many characters to return.</param>
+            <returns>Returns a string containing a specified number of characters from the left side of a string.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "abcdefghij";
+            var length = 5;
+            var result = value.Left(length);
+            
+            /*
+            result is "abcde"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.StringHelper.Mid(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns a string that contains a specified number of characters starting from a specified position in a string.
+            </summary>
+            <param name="str">String expression from which characters are returned.</param>
+            <param name="startIndex">Starting position of the characters to return.</param>
+            <param name="length">Number of characters to return.</param>
+            <returns>A string that consists of the specified number of characters starting from the specified position in the string.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "abcdefghij";
+            var startIndex = 3;
+            var length = 5;
+            var result = value.Mid(startIndex, length);
+            
+            /*
+            result is "defgh"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Data.StringHelper.Right(System.String,System.Int32)">
+            <summary>
+            Returns a string containing a specified number of characters from the right side of a string.
+            </summary>
+            <param name="str">String expression from which the rightmost characters are returned.</param>
+            <param name="length">Numeric expression indicating how many characters to return.</param>
+            <returns>Returns a string containing a specified number of characters from the right side of a string.</returns>
+            <example>
+            <code lang="csharp">
+            var value = "abcdefghij";
+            var length = 5;
+            var result = value.Right(length);
+            
+            /*
+            result is "fghij"
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.IO.DirectoryHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.IO.Directory"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.IO.DirectoryHelper.CopyDirectory(System.String,System.String,System.Boolean)">
+            <summary>
+            Copy files from the source folder to destination folder overwriting the content
+            </summary>
+            <param name="source">Source folder</param>
+            <param name="destination">Destination folder</param>
+            <param name="overwrite">Overwrite destination file</param>
+            <remarks>
+            This method check if is posible to override a file and retry it
+            </remarks>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Source directory does not exist or could not be found.</exception>
+            <example>
+            <code lang="csharp">
+            var source = "sourceDir";
+            var destination = "destDir";
+            var overwrite = true;
+            DirectoryHelper.CopyDirectory(source, destination, overwrite);
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.IO.FileHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.IO.File"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.IO.FileHelper.IsFileOpen(System.String,System.IO.FileAccess)">
+            <summary>
+            Check if a file is open.
+            </summary>
+            <param name="file">File name.</param>
+            <param name="fileAccess">File access.</param>
+            <returns>True if file is open, false otherwise.</returns>
+            <example>
+            <code lang="csharp">
+            var file= "foo";
+            var fileAccess = FileAccess.ReadWrite;
+            var fileIsOpen = FileHelper.IsFileOpen(file, fileAccess)
+            
+            /*
+            fileIsOpen is true if file is open, false otherwise.
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Utils.Average">
+            <summary>
+            A static class to calculate averages.
+            </summary>
+            <example>
+            <code lang="csharp">
+            double avg = 0;
+            int count = 0;
+            double value;
+            
+            // insert first element
+            count++;
+            value = 1;
+            
+            avg = Average.RunningAverage(avg, count, value);
+            /*
+            avg is 1
+            */
+            
+            // insert second element
+            count++;
+            value = 3;
+            
+            avg = Average.RunningAverage(avg, count, value);
+            /*
+            avg is 2
+            */
+            </code>
+            </example>
+        </member>
+        <member name="M:ADN.Helpers.Utils.Average.RunningAverage(System.Double,System.Int32,System.Double)">
+            <summary>
+            Calculate average.
+            </summary>
+            <param name="previousAvg">Previous average.</param>
+            <param name="count">Number of elements with the new value.</param>
+            <param name="currentValue">New value.</param>
+            <returns>Average.</returns>
+            <exception cref="T:System.DivideByZeroException">Number of elements is zero.</exception>
+        </member>
+        <member name="T:ADN.Helpers.Utils.Filter">
+            <summary>
+            Class to calculate filtered values.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Utils.Filter.#ctor(System.Int32)">
+            <summary>
+            Class constructor.
+            </summary>
+            <param name="length">Number of last elements introduced to filter.</param>
+            <exception cref="T:System.ArgumentException">Param must be strictly positive.</exception>
+        </member>
+        <member name="M:ADN.Helpers.Utils.Filter.Clear">
+            <summary>
+            Remove all values from the filter queue.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Utils.Filter.Add(System.Double)">
+            <summary>
+            Add new element to filter.
+            </summary>
+            <param name="value">New value.</param>
+            <returns>Filtered value.</returns>
+            <example>
+            <code lang="csharp">
+            var length = 3;
+            var filter = new Filter(length);
+            double result;
+            
+            result = filter.Add(1);
+            //result is 1
+            result = filter.Add(2);
+            //result is 1.5
+            result = filter.Add(2);
+            //result is 1.67
+            result = filter.Add(2);
+            //result is 2
+            result = filter.Add(3);
+            //result is 2.33
+            result = filter.Add(3);
+            //result is 2.67
+            result = filter.Add(3);
+            //result is 3
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Utils.Range">
+            <summary>
+            A static class of utilities for ranges.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.Utils.Range.Intersection(System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            Calculate the intersection of the given ranges.
+            </summary>
+            <param name="max1">Maximum value of the first rank.</param>
+            <param name="min1">Minimum value of the first rank.</param>
+            <param name="max2">Maximum value of the second rank.</param>
+            <param name="min2">Minimum value of the second rank.</param>
+            <param name="maxR">Maximum value of the intersection range.</param>
+            <param name="minR">Minimum value of the intersection range.</param>
+            <returns>True if intersection exists, false otherwise.</returns>
+            <example>
+            <code lang="csharp">
+            double max1 = 20;
+            double min1 = 15;
+            double max2 = 21;
+            double min2 = 16;
+            double maxRresult;
+            double minRresult;
+            var result = Range.Intersection(max1, min1, max2, min2, out maxRresult, out minRresult);
+            
+            /*
+            result is true
+            maxRresult is 20
+            minRresult is 16
+            */
+            </code>
+            </example>
+        </member>
+    </members>
+</doc>
