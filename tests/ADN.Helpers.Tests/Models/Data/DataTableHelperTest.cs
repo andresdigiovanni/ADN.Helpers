@@ -64,13 +64,19 @@ namespace ADN.Helpers.Tests.Data
         {
             string html = "<table>";
 
-            html += "<th>";
-            for (int i = 0; i < columns; i++)
+            html += "<thead>";
+            if (columns > 0)
             {
-                html += $"<td>id{i.ToString()}</td>";
+                html += "<tr>";
+                for (int i = 0; i < columns; i++)
+                {
+                    html += $"<th>id{i.ToString()}</th>";
+                }
+                html += "</tr>";
             }
-            html += "</th>";
+            html += "</thead>";
 
+            html += "<tbody>";
             for (int i = 0; i < rows; i++)
             {
                 html += "<tr>";
@@ -82,6 +88,7 @@ namespace ADN.Helpers.Tests.Data
 
                 html += "</tr>";
             }
+            html += "</tbody>";
             html += "</table>";
 
             return html;

@@ -24,18 +24,24 @@ namespace ADN.Helpers.Data
         /// </example>
         public static string ToHtmlTable(this DataTable dataTable)
         {
-            string html = "<table>";
             int numColumns = dataTable.Columns.Count;
+            string html = "<table>";
 
             // header
-            html += "<th>";
-            for (int i = 0; i < numColumns; i++)
+            html += "<thead>";
+            if (numColumns > 0)
             {
-                html += $"<td>{dataTable.Columns[i].ColumnName}</td>";
+                html += "<tr>";
+                for (int i = 0; i < numColumns; i++)
+                {
+                    html += $"<th>{dataTable.Columns[i].ColumnName}</th>";
+                }
+                html += "</tr>";
             }
-            html += "</th>";
+            html += "</thead>";
 
             // rows
+            html += "<tbody>";
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 html += "<tr>";
@@ -46,7 +52,7 @@ namespace ADN.Helpers.Data
 
                 html += "</tr>";
             }
-
+            html += "</tbody>";
             html += "</table>";
             return html.ToString();
         }
