@@ -3,16 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>1.4.0</Version>
-	<Title>ADN.Helpers</Title>
+    <Title>ADN.Helpers</Title>
     <Authors>Andrés Di Giovanni</Authors>
     <Company>ADN</Company>	
     <Product>ADN.Helpers</Product>
     <Description>ADN.Helpers is a cross-platform open-source library which provides helpers and utilities to .NET developers</Description>
     <Copyright>Copyright © Andrés Di Giovanni 2019</Copyright>
-	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://github.com/andresdigiovanni/ADN.Helpers/blob/master/LICENSE</PackageLicenseUrl>
-	<PackageProjectUrl>https://github.com/andresdigiovanni/ADN.Helpers</PackageProjectUrl>
-	<PackageTags>Utilities; Helpers; Extensions; Array; Average; Base64; Byte; DataTable; DateTime; Directory; Enum; File; Filter; Integer; List; Range; String</PackageTags>
+    <PackageProjectUrl>https://github.com/andresdigiovanni/ADN.Helpers</PackageProjectUrl>
+    <PackageTags>Utilities; Helpers; Extensions; Array; Average; Base64; Byte; DataTable; DateTime; Directory; Enum; File; Filter; Integer; List; Range; String</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl> 
     <RepositoryUrl>https://github.com/andresdigiovanni/ADN.Helpers</RepositoryUrl> 
     <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Helpers/master/icon.png</PackageIconUrl>
