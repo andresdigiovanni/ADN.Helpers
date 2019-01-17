@@ -10,31 +10,59 @@ namespace ADN.Helpers.Data
     /// </summary>
     public static class DataTableHelper
     {
+        public class TableCssClasses
+        {
+            public string[] Table { get; set; } = new string[0];
+            public string[] Tr { get; set; } = new string[0];
+            public string[] Th { get; set; } = new string[0];
+            public string[] Td { get; set; } = new string[0];
+        }
+
         /// <summary>
         /// Convert a DataTable to the equivalent HTML table.
         /// </summary>
         /// <param name="dataTable">DataTable to convert.</param>
+        /// <param name="tableCssClasses">Optional parameter. CSS classes.</param>
         /// <returns>HTML table.</returns>
         /// <example>
         /// <code lang="csharp">
-        /// DataTable table = new DataTable();
+        /// DataTable table = new DataTable(new DataTableHelper.TableCssClasses()
+        /// {
+        ///     Table = new string[] { "c-table" },
+        ///     Tr = new string[] { "c-tr-1", "c-tr-2" },
+        ///     Th = new string[] { "c-th" },
+        ///     Td = new string[] { "c-td" },
+        /// });
         /// // populate table
         /// var result = table.ToHtmlTable();
         /// </code>
         /// </example>
-        public static string ToHtmlTable(this DataTable dataTable)
+        public static string ToHtmlTable(this DataTable dataTable, TableCssClasses tableCssClasses = null)
         {
+            string tableCss = string.Empty;
+            string trCss = string.Empty;
+            string thCss = string.Empty;
+            string tdCss = string.Empty;
+
+            if (tableCssClasses != null)
+            {
+                tableCss = (tableCssClasses.Table.Length > 0) ? $" class='{string.Join(" ", tableCssClasses.Table)}'" : "";
+                trCss = (tableCssClasses.Tr.Length > 0) ? $" class='{string.Join(" ", tableCssClasses.Tr)}'" : "";
+                thCss = (tableCssClasses.Th.Length > 0) ? $" class='{string.Join(" ", tableCssClasses.Th)}'" : "";
+                tdCss = (tableCssClasses.Td.Length > 0) ? $" class='{string.Join(" ", tableCssClasses.Td)}'" : "";
+            }
+
             int numColumns = dataTable.Columns.Count;
-            string html = "<table>";
+            string html = $"<table{tableCss}>";
 
             // header
             html += "<thead>";
             if (numColumns > 0)
             {
-                html += "<tr>";
+                html += $"<tr{trCss}>";
                 for (int i = 0; i < numColumns; i++)
                 {
-                    html += $"<th>{dataTable.Columns[i].ColumnName}</th>";
+                    html += $"<th{thCss}>{dataTable.Columns[i].ColumnName}</th>";
                 }
                 html += "</tr>";
             }
@@ -44,10 +72,10 @@ namespace ADN.Helpers.Data
             html += "<tbody>";
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                html += "<tr>";
+                html += $"<tr{trCss}>";
                 for (var j = 0; j < numColumns; j++)
                 {
-                    html += $"<td>{dataTable.Rows[i][j]}</td>";
+                    html += $"<td{tdCss}>{dataTable.Rows[i][j]}</td>";
                 }
 
                 html += "</tr>";

@@ -261,15 +261,22 @@
             A static class of extension methods for <see cref="T:System.Data.DataTable"/>.
             </summary>
         </member>
-        <member name="M:ADN.Helpers.Data.DataTableHelper.ToHtmlTable(System.Data.DataTable)">
+        <member name="M:ADN.Helpers.Data.DataTableHelper.ToHtmlTable(System.Data.DataTable,ADN.Helpers.Data.DataTableHelper.TableCssClasses)">
             <summary>
             Convert a DataTable to the equivalent HTML table.
             </summary>
             <param name="dataTable">DataTable to convert.</param>
+            <param name="tableCssClasses">Optional parameter. CSS classes.</param>
             <returns>HTML table.</returns>
             <example>
             <code lang="csharp">
-            DataTable table = new DataTable();
+            DataTable table = new DataTable(new DataTableHelper.TableCssClasses()
+            {
+                Table = new string[] { "c-table" },
+                Tr = new string[] { "c-tr-1", "c-tr-2" },
+                Th = new string[] { "c-th" },
+                Td = new string[] { "c-td" },
+            });
             // populate table
             var result = table.ToHtmlTable();
             </code>

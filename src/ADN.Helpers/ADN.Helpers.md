@@ -21,7 +21,7 @@
   - [HexaToBytes(value,separator)](#M-ADN-Helpers-Data-ByteHelper-HexaToBytes-System-String,System-String- 'ADN.Helpers.Data.ByteHelper.HexaToBytes(System.String,System.String)')
   - [StringToBytes(value)](#M-ADN-Helpers-Data-ByteHelper-StringToBytes-System-String- 'ADN.Helpers.Data.ByteHelper.StringToBytes(System.String)')
 - [DataTableHelper](#T-ADN-Helpers-Data-DataTableHelper 'ADN.Helpers.Data.DataTableHelper')
-  - [ToHtmlTable(dataTable)](#M-ADN-Helpers-Data-DataTableHelper-ToHtmlTable-System-Data-DataTable- 'ADN.Helpers.Data.DataTableHelper.ToHtmlTable(System.Data.DataTable)')
+  - [ToHtmlTable(dataTable,tableCssClasses)](#M-ADN-Helpers-Data-DataTableHelper-ToHtmlTable-System-Data-DataTable,ADN-Helpers-Data-DataTableHelper-TableCssClasses- 'ADN.Helpers.Data.DataTableHelper.ToHtmlTable(System.Data.DataTable,ADN.Helpers.Data.DataTableHelper.TableCssClasses)')
 - [DateTimeHelper](#T-ADN-Helpers-Data-DateTimeHelper 'ADN.Helpers.Data.DateTimeHelper')
   - [DateTimeToUnixTimeStamp(date)](#M-ADN-Helpers-Data-DateTimeHelper-DateTimeToUnixTimeStamp-System-DateTime- 'ADN.Helpers.Data.DateTimeHelper.DateTimeToUnixTimeStamp(System.DateTime)')
   - [UnixTimeStampToDateTime(unixTimestamp)](#M-ADN-Helpers-Data-DateTimeHelper-UnixTimeStampToDateTime-System-Int64- 'ADN.Helpers.Data.DateTimeHelper.UnixTimeStampToDateTime(System.Int64)')
@@ -570,8 +570,8 @@ ADN.Helpers.Data
 
 A static class of extension methods for [DataTable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Data.DataTable 'System.Data.DataTable').
 
-<a name='M-ADN-Helpers-Data-DataTableHelper-ToHtmlTable-System-Data-DataTable-'></a>
-### ToHtmlTable(dataTable) `method`
+<a name='M-ADN-Helpers-Data-DataTableHelper-ToHtmlTable-System-Data-DataTable,ADN-Helpers-Data-DataTableHelper-TableCssClasses-'></a>
+### ToHtmlTable(dataTable,tableCssClasses) `method`
 
 ##### Summary
 
@@ -586,11 +586,18 @@ HTML table.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dataTable | [System.Data.DataTable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Data.DataTable 'System.Data.DataTable') | DataTable to convert. |
+| tableCssClasses | [ADN.Helpers.Data.DataTableHelper.TableCssClasses](#T-ADN-Helpers-Data-DataTableHelper-TableCssClasses 'ADN.Helpers.Data.DataTableHelper.TableCssClasses') | Optional parameter. CSS classes. |
 
 ##### Example
 
 ```csharp
-DataTable table = new DataTable();
+DataTable table = new DataTable(new DataTableHelper.TableCssClasses()
+{
+    Table = new string[] { "c-table" },
+    Tr = new string[] { "c-tr-1", "c-tr-2" },
+    Th = new string[] { "c-th" },
+    Td = new string[] { "c-td" },
+});
 // populate table
 var result = table.ToHtmlTable(); 
 ```
