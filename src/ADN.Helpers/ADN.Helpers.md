@@ -41,6 +41,7 @@
 - [ListHelper](#T-ADN-Helpers-Data-ListHelper 'ADN.Helpers.Data.ListHelper')
   - [IndexOfMax\`\`1(values)](#M-ADN-Helpers-Data-ListHelper-IndexOfMax``1-System-Collections-Generic-IList{``0}- 'ADN.Helpers.Data.ListHelper.IndexOfMax``1(System.Collections.Generic.IList{``0})')
   - [IndexOfMin\`\`1(values)](#M-ADN-Helpers-Data-ListHelper-IndexOfMin``1-System-Collections-Generic-IList{``0}- 'ADN.Helpers.Data.ListHelper.IndexOfMin``1(System.Collections.Generic.IList{``0})')
+  - [IsSame\`\`1(first,second)](#M-ADN-Helpers-Data-ListHelper-IsSame``1-System-Collections-Generic-IList{``0},System-Collections-Generic-IList{``0}- 'ADN.Helpers.Data.ListHelper.IsSame``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IList{``0})')
   - [Median(values)](#M-ADN-Helpers-Data-ListHelper-Median-System-Collections-Generic-IEnumerable{System-Double}- 'ADN.Helpers.Data.ListHelper.Median(System.Collections.Generic.IEnumerable{System.Double})')
   - [Shuffle\`\`1(values)](#M-ADN-Helpers-Data-ListHelper-Shuffle``1-System-Collections-Generic-IList{``0}- 'ADN.Helpers.Data.ListHelper.Shuffle``1(System.Collections.Generic.IList{``0})')
 - [Range](#T-ADN-Helpers-Utils-Range 'ADN.Helpers.Utils.Range')
@@ -1056,6 +1057,41 @@ var values = new double[] { 13, 12, 11, 10, 11, 12, 13 };
 var result = values.IndexOfMin();
 /*
 result is 3
+*/ 
+```
+
+<a name='M-ADN-Helpers-Data-ListHelper-IsSame``1-System-Collections-Generic-IList{``0},System-Collections-Generic-IList{``0}-'></a>
+### IsSame\`\`1(first,second) `method`
+
+##### Summary
+
+Determine if two sequences contains exactly the same elements.
+
+##### Returns
+
+True if two sequences contains exactly the same elements, false otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| first | [System.Collections.Generic.IList{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{``0}') | The first list of elements. |
+| second | [System.Collections.Generic.IList{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{``0}') | The second list of elements. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type of the elements of the list. |
+
+##### Example
+
+```csharp
+var first = new double[] { 0, 1 };
+var second = new double[] { 1, 0 };
+var result = first.IsSame(second);
+/*
+result is true
 */ 
 ```
 

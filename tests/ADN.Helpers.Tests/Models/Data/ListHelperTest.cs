@@ -56,6 +56,15 @@ namespace ADN.Helpers.Tests.Data
         }
 
         [Theory]
+        [ClassData(typeof(IsSameData))]
+        public void IsSame(double[] first, double[] second, bool expected)
+        {
+            var result = first.IsSame(second);
+
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
         [ClassData(typeof(ShuffleData))]
         public void Shuffle(double[] values)
         {
@@ -273,6 +282,21 @@ namespace ADN.Helpers.Tests.Data
             {
                 yield return new object[] { new double[] { 0 } };
                 yield return new object[] { new double[] { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 } };
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        }
+
+        public class IsSameData : IEnumerable<object[]>
+        {
+            public IEnumerator<object[]> GetEnumerator()
+            {
+                yield return new object[] { new double[] { }, new double[] { }, true };
+                yield return new object[] { new double[] { 0 }, new double[] { 0 }, true };
+                yield return new object[] { new double[] { 0, 1 }, new double[] { 0, 1 }, true };
+                yield return new object[] { new double[] { 0, 1 }, new double[] { 1, 0 }, true };
+                yield return new object[] { new double[] { 0 }, new double[] { 0, 1 }, false };
+                yield return new object[] { new double[] { 0, 1 }, new double[] { 0 }, false };
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

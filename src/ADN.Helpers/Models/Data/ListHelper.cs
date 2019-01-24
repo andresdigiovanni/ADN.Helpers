@@ -90,6 +90,29 @@ namespace ADN.Helpers.Data
         }
 
         /// <summary>
+        /// Determine if two sequences contains exactly the same elements.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of the list.</typeparam>
+        /// <param name="first">The first list of elements.</param>
+        /// <param name="second">The second list of elements.</param>
+        /// <returns>True if two sequences contains exactly the same elements, false otherwise.</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var first = new double[] { 0, 1 };
+        /// var second = new double[] { 1, 0 };
+        /// var result = first.IsSame(second);
+        /// 
+        /// /*
+        /// result is true
+        /// */
+        /// </code>
+        /// </example>
+        public static bool IsSame<T>(this IList<T> first, IList<T> second)
+        {
+            return new HashSet<T>(first).SetEquals(second); ;
+        }
+
+        /// <summary>
         /// Shuffle the elements of the list.
         /// </summary>
         /// <typeparam name="T">The type of the elements of the list.</typeparam>
