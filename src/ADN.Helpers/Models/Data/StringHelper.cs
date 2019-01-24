@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ADN.Helpers.Data
 {
@@ -78,6 +79,28 @@ namespace ADN.Helpers.Data
         public static string Right(this string str, int length)
         {
             return (str.Length <= length) ? str : str.Substring(str.Length - length, length);
+        }
+
+        /// <summary>
+        /// Returns a string without the non-printable ASCII characters from a string (characters between space and tilde).
+        /// </summary>
+        /// <param name="value">String to remove the non-printable ASCII characters.</param>
+        /// <returns>A string without the non-printable ASCII characters from a string (characters between space and tilde).</returns>
+        /// <example>
+        /// <code lang="csharp">
+        /// var value = (char)0x12 + " a~";
+        /// var result = value.TrimNonPrintableAscii();
+        /// 
+        /// /*
+        /// result is " a~"
+        /// */
+        /// </code>
+        /// </example>
+        public static string TrimNonPrintableAscii(this string value)
+        {
+            string pattern = "[^ -~]+";
+            Regex regex = new Regex(pattern);
+            return regex.Replace(value, "");
         }
     }
 }

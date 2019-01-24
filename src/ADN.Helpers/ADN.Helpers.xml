@@ -547,6 +547,23 @@
             </code>
             </example>
         </member>
+        <member name="M:ADN.Helpers.Data.StringHelper.TrimNonPrintableAscii(System.String)">
+            <summary>
+            Returns a string without the non-printable ASCII characters from a string (characters between space and tilde).
+            </summary>
+            <param name="value">String to remove the non-printable ASCII characters.</param>
+            <returns>A string without the non-printable ASCII characters from a string (characters between space and tilde).</returns>
+            <example>
+            <code lang="csharp">
+            var value = (char)0x12 + " a~";
+            var result = value.TrimNonPrintableAscii();
+            
+            /*
+            result is " a~"
+            */
+            </code>
+            </example>
+        </member>
         <member name="T:ADN.Helpers.IO.DirectoryHelper">
             <summary>
             A static class of extension methods for <see cref="T:System.IO.Directory"/>.

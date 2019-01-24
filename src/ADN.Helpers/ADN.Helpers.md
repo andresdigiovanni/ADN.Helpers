@@ -49,6 +49,7 @@
   - [Left(str,length)](#M-ADN-Helpers-Data-StringHelper-Left-System-String,System-Int32- 'ADN.Helpers.Data.StringHelper.Left(System.String,System.Int32)')
   - [Mid(str,startIndex,length)](#M-ADN-Helpers-Data-StringHelper-Mid-System-String,System-Int32,System-Int32- 'ADN.Helpers.Data.StringHelper.Mid(System.String,System.Int32,System.Int32)')
   - [Right(str,length)](#M-ADN-Helpers-Data-StringHelper-Right-System-String,System-Int32- 'ADN.Helpers.Data.StringHelper.Right(System.String,System.Int32)')
+  - [TrimNonPrintableAscii(value)](#M-ADN-Helpers-Data-StringHelper-TrimNonPrintableAscii-System-String- 'ADN.Helpers.Data.StringHelper.TrimNonPrintableAscii(System.String)')
 
 <a name='T-ADN-Helpers-Data-ArrayHelper'></a>
 ## ArrayHelper `type`
@@ -1270,5 +1271,32 @@ var length = 5;
 var result = value.Right(length);
 /*
 result is "fghij"
+*/ 
+```
+
+<a name='M-ADN-Helpers-Data-StringHelper-TrimNonPrintableAscii-System-String-'></a>
+### TrimNonPrintableAscii(value) `method`
+
+##### Summary
+
+Returns a string without the non-printable ASCII characters from a string (characters between space and tilde).
+
+##### Returns
+
+A string without the non-printable ASCII characters from a string (characters between space and tilde).
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String to remove the non-printable ASCII characters. |
+
+##### Example
+
+```csharp
+var value = (char)0x12 + " a~";
+var result = value.TrimNonPrintableAscii();
+/*
+result is " a~"
 */ 
 ```

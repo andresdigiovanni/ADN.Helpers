@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
  - CSS classes to DataTableHelper.
+ - Methods to StringHelper class.
 
 ## [1.4.0] - 2019-01-12
 ### Added
