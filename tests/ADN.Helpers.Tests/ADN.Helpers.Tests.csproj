@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\src\ADN.Helpers\ADN.Helpers.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\IO\" />
+  </ItemGroup>
+
 </Project>

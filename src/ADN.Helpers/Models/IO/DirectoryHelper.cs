@@ -8,6 +8,7 @@ namespace ADN.Helpers.IO
     /// <summary>
     /// A static class of extension methods for <see cref="Directory"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.IO", true)]
     public static class DirectoryHelper
     {
         /// <summary>
@@ -28,6 +29,7 @@ namespace ADN.Helpers.IO
         /// DirectoryHelper.CopyDirectory(source, destination, overwrite);
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.IO", true)]
         public static void CopyDirectory(string source, string destination, bool overwrite = false)
         {
             // Get the subdirectories for the specified directory.

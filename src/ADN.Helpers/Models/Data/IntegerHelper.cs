@@ -5,6 +5,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="int"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class IntegerHelper
     {
         /// <summary>
@@ -25,6 +26,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static int RoundNumber(this double value, int step)
         {
             if (step == 0)
@@ -57,6 +59,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static int RoundNumber(this double value, int step, int min, int max)
         {
             value = RoundNumber(value, step);

@@ -7,6 +7,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of methods for Base64 strings.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class Base64Helper
     {
         /// <summary>
@@ -24,6 +25,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string Base64Encode(this string plainText)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
@@ -45,6 +47,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string Base64Decode(this string base64EncodedData)
         {
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);

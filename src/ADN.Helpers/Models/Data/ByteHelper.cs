@@ -7,6 +7,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="Byte"/> <see cref="Array"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class ByteHelper
     {
         /// <summary>
@@ -27,6 +28,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string BytesToHexa(this byte[] bytes, string separator = "")
         {
             // Check arguments
@@ -66,6 +68,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static byte[] HexaToBytes(this string value, string separator = "")
         {
             List<byte> bytes = new List<byte>();
@@ -98,6 +101,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string BytesToString(this byte[] bytes)
         {
             return Encoding.UTF8.GetString(bytes);
@@ -119,6 +123,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static byte[] StringToBytes(this string value)
         {
             return Encoding.UTF8.GetBytes(value);

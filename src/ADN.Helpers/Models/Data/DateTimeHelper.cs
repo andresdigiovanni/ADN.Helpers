@@ -7,6 +7,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="DateTime"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class DateTimeHelper
     {
         /// <summary>
@@ -24,6 +25,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static long DateTimeToUnixTimeStamp(this DateTime date)
         {
             long unixTimestamp = date.Ticks - new DateTime(1970, 1, 1).Ticks;
@@ -47,6 +49,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static DateTime UnixTimeStampToDateTime(this long unixTimestamp)
         {
             DateTime date = new DateTime(1970, 1, 1);

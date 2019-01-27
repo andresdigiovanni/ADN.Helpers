@@ -8,6 +8,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="string"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class StringHelper
     {
         /// <summary>
@@ -27,6 +28,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string Left(this string str, int length)
         {
             return (str.Length <= length) ? str : str.Substring(0, length);
@@ -51,6 +53,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string Mid(this string str, int startIndex, int length)
         {
             if (str.Length < startIndex) return "";
@@ -76,6 +79,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string Right(this string str, int length)
         {
             return (str.Length <= length) ? str : str.Substring(str.Length - length, length);
@@ -96,6 +100,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string TrimNonPrintableAscii(this string value)
         {
             string pattern = "[^ -~]+";

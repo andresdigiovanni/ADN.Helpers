@@ -7,6 +7,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="Array"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class ArrayHelper
     {
         /// <summary>
@@ -27,6 +28,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static bool ArrayEqual<T>(this T[] first, T[] second) where T : IEquatable<T>
         {
             if (ReferenceEquals(first, second))
@@ -73,6 +75,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static T[] Combine<T>(this T[] first, T[] second)
         {
             T[] result = new T[first.Length + second.Length];
@@ -99,6 +102,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static T[] SetAllValues<T>(this T[] array, T value)
         {
             // Check arguments
@@ -135,6 +139,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static IEnumerable<T[]> SplitByNumberOfDivisions<T>(this T[] array, int numberOfDivisions)
         {
             // Check arguments
@@ -183,6 +188,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static IEnumerable<T[]> SplitByNumberOfElementsInDivision<T>(this T[] array, int elementsInDivision)
         {
             // Check arguments
@@ -231,6 +237,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static T[] SubArray<T>(this T[] array, int index, int length)
         {
             // Check arguments

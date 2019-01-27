@@ -8,6 +8,7 @@ namespace ADN.Helpers.IO
     /// <summary>
     /// A static class of extension methods for <see cref="File"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.IO", true)]
     public class FileHelper
     {
         /// <summary>
@@ -27,6 +28,7 @@ namespace ADN.Helpers.IO
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.IO", true)]
         public static bool IsFileOpen(string file, FileAccess fileAccess = FileAccess.ReadWrite)
         {
             try

@@ -8,6 +8,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="DataTable"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class DataTableHelper
     {
         public class TableCssClasses
@@ -37,6 +38,7 @@ namespace ADN.Helpers.Data
         /// var result = table.ToHtmlTable();
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static string ToHtmlTable(this DataTable dataTable, TableCssClasses tableCssClasses = null)
         {
             string tableCss = string.Empty;

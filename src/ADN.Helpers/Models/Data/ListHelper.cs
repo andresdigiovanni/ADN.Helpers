@@ -7,6 +7,7 @@ namespace ADN.Helpers.Data
     /// <summary>
     /// A static class of extension methods for <see cref="List{T}"/>.
     /// </summary>
+    [Obsolete("Class moved to ADN.Extensions", true)]
     public static class ListHelper
     {
         /// <summary>
@@ -26,6 +27,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static int IndexOfMax<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -66,6 +68,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static int IndexOfMin<T>(this IList<T> values) where T : IComparable
         {
             // Check arguments
@@ -107,6 +110,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static bool IsSame<T>(this IList<T> first, IList<T> second)
         {
             return new HashSet<T>(first).SetEquals(second); ;
@@ -124,6 +128,7 @@ namespace ADN.Helpers.Data
         /// values.Shuffle();
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static void Shuffle<T>(this IList<T> values)
         {
             // Check arguments
@@ -161,6 +166,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Median(this IEnumerable<double> values)
         {
             // Check arguments
@@ -196,6 +202,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Mean(this List<double> values)
         {
             // Check arguments
@@ -228,6 +235,7 @@ namespace ADN.Helpers.Data
         /// */
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Mean(this List<double> values, int start, int end)
         {
             // Check arguments
@@ -272,6 +280,7 @@ namespace ADN.Helpers.Data
         /// var result = values.Variance();
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Variance(this List<double> values)
         {
             return values.Variance(values.Mean(), 0, values.Count);
@@ -290,6 +299,7 @@ namespace ADN.Helpers.Data
         /// var result = values.Variance(mean);
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Variance(this List<double> values, double mean)
         {
             return values.Variance(mean, 0, values.Count);
@@ -312,6 +322,7 @@ namespace ADN.Helpers.Data
         /// var result = values.Variance(mean, start, end);
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double Variance(this List<double> values, double mean, int start, int end)
         {
             double variance = 0;
@@ -338,6 +349,7 @@ namespace ADN.Helpers.Data
         /// var result = values.StandardDeviation();
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double StandardDeviation(this List<double> values)
         {
             return values.Count == 0 ? 0 : values.StandardDeviation(0, values.Count);
@@ -358,6 +370,7 @@ namespace ADN.Helpers.Data
         /// var result = values.StandardDeviation(start, end);
         /// </code>
         /// </example>
+        [Obsolete("Class moved to ADN.Extensions", true)]
         public static double StandardDeviation(this List<double> values, int start, int end)
         {
             double mean = values.Mean(start, end);
