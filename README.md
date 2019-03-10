@@ -1,5 +1,3 @@
-**Important: Some classes has moved to [ADN.Extensions](https://github.com/andresdigiovanni/ADN.Extensions) and [ADN.IO](https://github.com/andresdigiovanni/ADN.IO) packages!**
-
 # Helpers and Utilities Library for .NET
 
 ADN.Helpers is a cross-platform open-source library which provides helpers and utilities to .NET developers.
