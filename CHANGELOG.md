@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Removed
+- Removed obsolete classes.
+
 ## [1.5.0] - 2019-01-27
 ### Added
 - CSS classes to DataTableHelper.
@@ -13,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Methods to ListHelper class.
 
 ### Removed
-- Moved classes to ADN.Extensions and ADN.IO
+- Moved classes to ADN.Extensions and ADN.IO.
 
 ## [1.4.0] - 2019-01-12
 ### Added

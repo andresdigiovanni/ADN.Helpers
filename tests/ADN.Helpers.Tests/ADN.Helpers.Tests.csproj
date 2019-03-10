@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\IO\**" />
+    <EmbeddedResource Remove="Models\IO\**" />
+    <None Remove="Models\IO\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
@@ -15,10 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ADN.Helpers\ADN.Helpers.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\IO\" />
   </ItemGroup>
 
 </Project>
