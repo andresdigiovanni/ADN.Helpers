@@ -35,6 +35,34 @@
             </code>
             </example>
         </member>
+        <member name="T:ADN.Helpers.ReflectiveSubclassEnumerator">
+            <summary>
+            A static class of reflective enumerator.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.ReflectiveSubclassEnumerator.GetEnumerableOfType``1(System.Object[])">
+            <summary>
+            Gets all subclasses of the given abstract class.
+            </summary>
+            <typeparam name="T">The type of the abstract class.</typeparam>
+            <param name="constructorArgs">An array of arguments that match in number, order,
+            and type the parameters of the constructor to invoke. If args is an empty array or null,
+            the constructor that takes no parameters (the default constructor) is invoked.</param>
+            <returns>List of references to the newly created objects.</returns>
+            <example>
+            <code lang="csharp">
+            public class AbsFoo {}
+            public class Foo1 : AbsFoo { }
+            public class Foo2 : AbsFoo { }
+            
+            <![CDATA[var result = ReflectiveSubclassEnumerator.GetEnumerableOfType<AbsFoo>(null).ToList();]]>
+            
+            /*
+            result is [ Foo1, Foo2 ]
+            */
+            </code>
+            </example>
+        </member>
         <member name="T:ADN.Helpers.Utils.Average">
             <summary>
             A static class to calculate averages.

@@ -13,6 +13,8 @@
   - [Clear()](#M-ADN-Helpers-Utils-Filter-Clear 'ADN.Helpers.Utils.Filter.Clear')
 - [Range](#T-ADN-Helpers-Utils-Range 'ADN.Helpers.Utils.Range')
   - [Intersection(max1,min1,max2,min2,maxR,minR)](#M-ADN-Helpers-Utils-Range-Intersection-System-Double,System-Double,System-Double,System-Double,System-Double@,System-Double@- 'ADN.Helpers.Utils.Range.Intersection(System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)')
+- [ReflectiveSubclassEnumerator](#T-ADN-Helpers-ReflectiveSubclassEnumerator 'ADN.Helpers.ReflectiveSubclassEnumerator')
+  - [GetEnumerableOfType\`\`1(constructorArgs)](#M-ADN-Helpers-ReflectiveSubclassEnumerator-GetEnumerableOfType``1-System-Object[]- 'ADN.Helpers.ReflectiveSubclassEnumerator.GetEnumerableOfType``1(System.Object[])')
 
 <a name='T-ADN-Helpers-Utils-Average'></a>
 ## Average `type`
@@ -252,4 +254,48 @@ result is true
 maxRresult is 20
 minRresult is 16
 */ 
+```
+
+<a name='T-ADN-Helpers-ReflectiveSubclassEnumerator'></a>
+## ReflectiveSubclassEnumerator `type`
+
+##### Namespace
+
+ADN.Helpers
+
+##### Summary
+
+A static class of reflective enumerator.
+
+<a name='M-ADN-Helpers-ReflectiveSubclassEnumerator-GetEnumerableOfType``1-System-Object[]-'></a>
+### GetEnumerableOfType\`\`1(constructorArgs) `method`
+
+##### Summary
+
+Gets all subclasses of the given abstract class.
+
+##### Returns
+
+List of references to the newly created objects.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| constructorArgs | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | An array of arguments that match in number, order,
+and type the parameters of the constructor to invoke. If args is an empty array or null,
+the constructor that takes no parameters (the default constructor) is invoked. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type of the abstract class. |
+
+##### Example
+
+```csharp
+public class AbsFoo {}
+public class Foo1 : AbsFoo { }
+public class Foo2 : AbsFoo { } 
 ```
