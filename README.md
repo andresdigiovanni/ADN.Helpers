@@ -5,6 +5,8 @@ ADN.Helpers is a cross-platform open-source library which provides helpers and u
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.Helpers.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.Helpers)
 [![NuGet](https://img.shields.io/nuget/v/ADN.Helpers.svg)](https://www.nuget.org/packages/ADN.Helpers/)
 [![BCH compliance](https://bettercodehub.com/edge/badge/andresdigiovanni/ADN.Helpers?branch=master)](https://bettercodehub.com/)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Helpers&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Helpers)
+[![Quality](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Helpers&metric=alert_status)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Helpers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
