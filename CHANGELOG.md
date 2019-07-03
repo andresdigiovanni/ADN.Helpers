@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Class: ReflectiveSubclassEnumerator.
+- Class: ObjectHelper, ReflectiveSubclassEnumerator.
 
 ## [2.0.0] - 2019-03-10
 ### Removed

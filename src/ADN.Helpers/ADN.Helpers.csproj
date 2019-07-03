@@ -13,7 +13,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://github.com/andresdigiovanni/ADN.Helpers/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/andresdigiovanni/ADN.Helpers</PackageProjectUrl>
-    <PackageTags>Utilities; Helpers; Average; Enum; Filter; Range; Reflective</PackageTags>
+    <PackageTags>Helpers; Utilities; Average; Enum; Filter; Object; Range; Reflective</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl> 
     <RepositoryUrl>https://github.com/andresdigiovanni/ADN.Helpers</RepositoryUrl> 
     <PackageIconUrl>https://raw.githubusercontent.com/andresdigiovanni/ADN.Helpers/master/icon.png</PackageIconUrl>
@@ -26,5 +26,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>ADN.Helpers.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ADN.Extensions" Version="1.2.0" />
+  </ItemGroup>
 
 </Project>

@@ -1,12 +1,11 @@
-﻿using ADN.Helpers.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace ADN.Helpers.Tests.Utils
+namespace ADN.Helpers.Tests
 {
     public class AverageTest
     {

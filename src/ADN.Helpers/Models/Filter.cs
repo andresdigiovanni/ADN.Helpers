@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ADN.Helpers.Utils
+namespace ADN.Helpers
 {
     /// <summary>
     /// Class to calculate filtered values.

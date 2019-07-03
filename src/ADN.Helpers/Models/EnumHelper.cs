@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ADN.Helpers.Data
+namespace ADN.Helpers
 {
     /// <summary>
     /// A static class of extension methods for <see cref="Enum"/>.

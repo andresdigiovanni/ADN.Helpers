@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ADN.Helpers.Utils
+namespace ADN.Helpers
 {
     /// <summary>
     /// A static class of utilities for ranges.

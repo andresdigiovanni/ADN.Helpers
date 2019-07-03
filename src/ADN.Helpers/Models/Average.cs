@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ADN.Helpers.Utils
+namespace ADN.Helpers
 {
     /// <summary>
     /// A static class to calculate averages.

@@ -1,10 +1,9 @@
-﻿using ADN.Helpers.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace ADN.Helpers.Tests.Data
+namespace ADN.Helpers.Tests
 {
     public class EnumHelperTest
     {
