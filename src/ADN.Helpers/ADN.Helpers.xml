@@ -4,66 +4,7 @@
         <name>ADN.Helpers</name>
     </assembly>
     <members>
-        <member name="T:ADN.Helpers.Data.EnumHelper">
-            <summary>
-            A static class of extension methods for <see cref="T:System.Enum"/>.
-            </summary>
-        </member>
-        <member name="M:ADN.Helpers.Data.EnumHelper.GetEnumValue(System.Type,System.String,System.Boolean)">
-            <summary>
-            Get enum value.
-            </summary>
-            <param name="enumType">Enum type.</param>
-            <param name="name">Enum text value.</param>
-            <param name="ignoreCase">Ignore case sensitive.</param>
-            <returns>Enum value.</returns>
-            <exception cref="T:System.ArgumentException">name is not a value in enumType.</exception>
-            <example>
-            <code lang="csharp">
-            enum Foo
-            {
-                A, B, C, D
-            }
-            var value = "A";
-            var type = typeof(Foo);
-            var ignoreCase = true;
-            var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
-            
-            /*
-            result is Foo.A
-            */
-            </code>
-            </example>
-        </member>
-        <member name="T:ADN.Helpers.ReflectiveSubclassEnumerator">
-            <summary>
-            A static class of reflective enumerator.
-            </summary>
-        </member>
-        <member name="M:ADN.Helpers.ReflectiveSubclassEnumerator.GetEnumerableOfType``1(System.Object[])">
-            <summary>
-            Gets all subclasses of the given abstract class.
-            </summary>
-            <typeparam name="T">The type of the abstract class.</typeparam>
-            <param name="constructorArgs">An array of arguments that match in number, order,
-            and type the parameters of the constructor to invoke. If args is an empty array or null,
-            the constructor that takes no parameters (the default constructor) is invoked.</param>
-            <returns>List of references to the newly created objects.</returns>
-            <example>
-            <code lang="csharp">
-            public class AbsFoo {}
-            public class Foo1 : AbsFoo { }
-            public class Foo2 : AbsFoo { }
-            
-            <![CDATA[var result = ReflectiveSubclassEnumerator.GetEnumerableOfType<AbsFoo>(null).ToList();]]>
-            
-            /*
-            result is [ Foo1, Foo2 ]
-            */
-            </code>
-            </example>
-        </member>
-        <member name="T:ADN.Helpers.Utils.Average">
+        <member name="T:ADN.Helpers.Average">
             <summary>
             A static class to calculate averages.
             </summary>
@@ -93,7 +34,7 @@
             </code>
             </example>
         </member>
-        <member name="M:ADN.Helpers.Utils.Average.RunningAverage(System.Double,System.Int32,System.Double)">
+        <member name="M:ADN.Helpers.Average.RunningAverage(System.Double,System.Int32,System.Double)">
             <summary>
             Calculate average.
             </summary>
@@ -103,24 +44,55 @@
             <returns>Average.</returns>
             <exception cref="T:System.DivideByZeroException">Number of elements is zero.</exception>
         </member>
-        <member name="T:ADN.Helpers.Utils.Filter">
+        <member name="T:ADN.Helpers.EnumHelper">
+            <summary>
+            A static class of extension methods for <see cref="T:System.Enum"/>.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.EnumHelper.GetEnumValue(System.Type,System.String,System.Boolean)">
+            <summary>
+            Get enum value.
+            </summary>
+            <param name="enumType">Enum type.</param>
+            <param name="name">Enum text value.</param>
+            <param name="ignoreCase">Ignore case sensitive.</param>
+            <returns>Enum value.</returns>
+            <exception cref="T:System.ArgumentException">name is not a value in enumType.</exception>
+            <example>
+            <code lang="csharp">
+            enum Foo
+            {
+                A, B, C, D
+            }
+            var value = "A";
+            var type = typeof(Foo);
+            var ignoreCase = true;
+            var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
+            
+            /*
+            result is Foo.A
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.Filter">
             <summary>
             Class to calculate filtered values.
             </summary>
         </member>
-        <member name="M:ADN.Helpers.Utils.Filter.#ctor(System.Int32)">
+        <member name="M:ADN.Helpers.Filter.#ctor(System.Int32)">
             <summary>
             Class constructor.
             </summary>
             <param name="length">Number of last elements introduced to filter.</param>
             <exception cref="T:System.ArgumentException">Param must be strictly positive.</exception>
         </member>
-        <member name="M:ADN.Helpers.Utils.Filter.Clear">
+        <member name="M:ADN.Helpers.Filter.Clear">
             <summary>
             Remove all values from the filter queue.
             </summary>
         </member>
-        <member name="M:ADN.Helpers.Utils.Filter.Add(System.Double)">
+        <member name="M:ADN.Helpers.Filter.Add(System.Double)">
             <summary>
             Add new element to filter.
             </summary>
@@ -149,12 +121,12 @@
             </code>
             </example>
         </member>
-        <member name="T:ADN.Helpers.Utils.Range">
+        <member name="T:ADN.Helpers.Range">
             <summary>
             A static class of utilities for ranges.
             </summary>
         </member>
-        <member name="M:ADN.Helpers.Utils.Range.Intersection(System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)">
+        <member name="M:ADN.Helpers.Range.Intersection(System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)">
             <summary>
             Calculate the intersection of the given ranges.
             </summary>
@@ -179,6 +151,34 @@
             result is true
             maxRresult is 20
             minRresult is 16
+            */
+            </code>
+            </example>
+        </member>
+        <member name="T:ADN.Helpers.ReflectiveSubclassEnumerator">
+            <summary>
+            A static class of reflective enumerator.
+            </summary>
+        </member>
+        <member name="M:ADN.Helpers.ReflectiveSubclassEnumerator.GetEnumerableOfType``1(System.Object[])">
+            <summary>
+            Gets all subclasses of the given abstract class.
+            </summary>
+            <typeparam name="T">The type of the abstract class.</typeparam>
+            <param name="constructorArgs">An array of arguments that match in number, order,
+            and type the parameters of the constructor to invoke. If args is an empty array or null,
+            the constructor that takes no parameters (the default constructor) is invoked.</param>
+            <returns>List of references to the newly created objects.</returns>
+            <example>
+            <code lang="csharp">
+            public class AbsFoo {}
+            public class Foo1 : AbsFoo { }
+            public class Foo2 : AbsFoo { }
+            
+            <![CDATA[var result = ReflectiveSubclassEnumerator.GetEnumerableOfType<AbsFoo>(null).ToList();]]>
+            
+            /*
+            result is [ Foo1, Foo2 ]
             */
             </code>
             </example>

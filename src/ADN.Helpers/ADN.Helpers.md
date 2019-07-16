@@ -1,184 +1,198 @@
-<a name='assembly'></a>
 # ADN.Helpers
 
-## Contents
+# Content
 
-- [Average](#T-ADN-Helpers-Utils-Average 'ADN.Helpers.Utils.Average')
-  - [RunningAverage(previousAvg,count,currentValue)](#M-ADN-Helpers-Utils-Average-RunningAverage-System-Double,System-Int32,System-Double- 'ADN.Helpers.Utils.Average.RunningAverage(System.Double,System.Int32,System.Double)')
-- [EnumHelper](#T-ADN-Helpers-Data-EnumHelper 'ADN.Helpers.Data.EnumHelper')
-  - [GetEnumValue(enumType,name,ignoreCase)](#M-ADN-Helpers-Data-EnumHelper-GetEnumValue-System-Type,System-String,System-Boolean- 'ADN.Helpers.Data.EnumHelper.GetEnumValue(System.Type,System.String,System.Boolean)')
-- [Filter](#T-ADN-Helpers-Utils-Filter 'ADN.Helpers.Utils.Filter')
-  - [#ctor(length)](#M-ADN-Helpers-Utils-Filter-#ctor-System-Int32- 'ADN.Helpers.Utils.Filter.#ctor(System.Int32)')
-  - [Add(value)](#M-ADN-Helpers-Utils-Filter-Add-System-Double- 'ADN.Helpers.Utils.Filter.Add(System.Double)')
-  - [Clear()](#M-ADN-Helpers-Utils-Filter-Clear 'ADN.Helpers.Utils.Filter.Clear')
-- [Range](#T-ADN-Helpers-Utils-Range 'ADN.Helpers.Utils.Range')
-  - [Intersection(max1,min1,max2,min2,maxR,minR)](#M-ADN-Helpers-Utils-Range-Intersection-System-Double,System-Double,System-Double,System-Double,System-Double@,System-Double@- 'ADN.Helpers.Utils.Range.Intersection(System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)')
-- [ReflectiveSubclassEnumerator](#T-ADN-Helpers-ReflectiveSubclassEnumerator 'ADN.Helpers.ReflectiveSubclassEnumerator')
-  - [GetEnumerableOfType\`\`1(constructorArgs)](#M-ADN-Helpers-ReflectiveSubclassEnumerator-GetEnumerableOfType``1-System-Object[]- 'ADN.Helpers.ReflectiveSubclassEnumerator.GetEnumerableOfType``1(System.Object[])')
+- [Average](#T:ADN.Helpers.Average)
 
-<a name='T-ADN-Helpers-Utils-Average'></a>
-## Average `type`
+  - [RunningAverage(previousAvg, count, currentValue)](#Average.RunningAverage(previousAvg,count,currentValue))
 
-##### Namespace
+- [EnumHelper](#T:ADN.Helpers.EnumHelper)
 
-ADN.Helpers.Utils
+  - [GetEnumValue(enumType, name, ignoreCase)](#EnumHelper.GetEnumValue(enumType,name,ignoreCase))
 
-##### Summary
+- [Filter](#T:ADN.Helpers.Filter)
+
+  - [Constructor(length)](#Filter.#ctor(length))
+
+  - [Add(value)](#Filter.Add(value))
+
+  - [Clear](#Filter.Clear)
+
+- [Range](#T:ADN.Helpers.Range)
+
+  - [Intersection(max1, min1, max2, min2, maxR, minR)](#Range.Intersection(max1,min1,max2,min2,maxR,minR))
+
+- [ReflectiveSubclassEnumerator](#T:ADN.Helpers.ReflectiveSubclassEnumerator)
+
+  - [GetEnumerableOfType`<T>(constructorArgs)](#ReflectiveSubclassEnumerator.GetEnumerableOfType`<T>(constructorArgs))
+
+<a name='T:ADN.Helpers.Average'></a>
+
+
+## Average
 
 A static class to calculate averages.
 
-##### Example
+
+#### Example
 
 ```csharp
 double avg = 0;
 int count = 0;
 double value;
+
 // insert first element
 count++;
 value = 1;
+
 avg = Average.RunningAverage(avg, count, value);
 /*
 avg is 1
 */
+
 // insert second element
 count++;
 value = 3;
+
 avg = Average.RunningAverage(avg, count, value);
 /*
 avg is 2
-*/ 
+*/
 ```
 
-<a name='M-ADN-Helpers-Utils-Average-RunningAverage-System-Double,System-Int32,System-Double-'></a>
-### RunningAverage(previousAvg,count,currentValue) `method`
+<a name='Average.RunningAverage(previousAvg,count,currentValue)'></a>
 
-##### Summary
+
+### RunningAverage(previousAvg, count, currentValue)
 
 Calculate average.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| previousAvg | *System.Double*<br>Previous average. |
+
+#### Parameters
+
+| count | *System.Int32*<br>Number of elements with the new value. |
+
+#### Parameters
+
+| currentValue | *System.Double*<br>New value. |
+
+
+#### Returns
 
 Average.
 
-##### Parameters
+*System.DivideByZeroException:* Number of elements is zero.
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| previousAvg | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Previous average. |
-| count | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of elements with the new value. |
-| currentValue | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | New value. |
+<a name='T:ADN.Helpers.EnumHelper'></a>
 
-##### Exceptions
 
-| Name | Description |
-| ---- | ----------- |
-| [System.DivideByZeroException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DivideByZeroException 'System.DivideByZeroException') | Number of elements is zero. |
+## EnumHelper
 
-<a name='T-ADN-Helpers-Data-EnumHelper'></a>
-## EnumHelper `type`
+A static class of extension methods for .
 
-##### Namespace
+<a name='EnumHelper.GetEnumValue(enumType,name,ignoreCase)'></a>
 
-ADN.Helpers.Data
 
-##### Summary
-
-A static class of extension methods for [Enum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Enum 'System.Enum').
-
-<a name='M-ADN-Helpers-Data-EnumHelper-GetEnumValue-System-Type,System-String,System-Boolean-'></a>
-### GetEnumValue(enumType,name,ignoreCase) `method`
-
-##### Summary
+### GetEnumValue(enumType, name, ignoreCase)
 
 Get enum value.
 
-##### Returns
 
-Enum value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| enumType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Enum type. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Enum text value. |
-| ignoreCase | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Ignore case sensitive. |
-
-##### Exceptions
+#### Parameters
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | name is not a value in enumType. |
+| enumType | *System.Type*<br>Enum type. |
 
-##### Example
+#### Parameters
+
+| name | *System.String*<br>Enum text value. |
+
+#### Parameters
+
+| ignoreCase | *System.Boolean*<br>Ignore case sensitive. |
+
+
+#### Returns
+
+Enum value.
+
+*System.ArgumentException:* name is not a value in enumType.
+
+
+#### Example
 
 ```csharp
 enum Foo
 {
-    A, B, C, D
+A, B, C, D
 }
 var value = "A";
 var type = typeof(Foo);
 var ignoreCase = true;
 var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
+
 /*
 result is Foo.A
-*/ 
+*/
 ```
 
-<a name='T-ADN-Helpers-Utils-Filter'></a>
-## Filter `type`
+<a name='T:ADN.Helpers.Filter'></a>
 
-##### Namespace
 
-ADN.Helpers.Utils
-
-##### Summary
+## Filter
 
 Class to calculate filtered values.
 
-<a name='M-ADN-Helpers-Utils-Filter-#ctor-System-Int32-'></a>
-### #ctor(length) `constructor`
+<a name='Filter.#ctor(length)'></a>
 
-##### Summary
+
+### Constructor(length)
 
 Class constructor.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| length | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of last elements introduced to filter. |
-
-##### Exceptions
+#### Parameters
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Param must be strictly positive. |
+| length | *System.Int32*<br>Number of last elements introduced to filter. |
 
-<a name='M-ADN-Helpers-Utils-Filter-Add-System-Double-'></a>
-### Add(value) `method`
+*System.ArgumentException:* Param must be strictly positive.
 
-##### Summary
+<a name='Filter.Add(value)'></a>
+
+
+### Add(value)
 
 Add new element to filter.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| value | *System.Double*<br>New value. |
+
+
+#### Returns
 
 Filtered value.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | New value. |
-
-##### Example
+#### Example
 
 ```csharp
 var length = 3;
 var filter = new Filter(length);
 double result;
+
 result = filter.Add(1);
 //result is 1
 result = filter.Add(2);
@@ -192,54 +206,64 @@ result = filter.Add(3);
 result = filter.Add(3);
 //result is 2.67
 result = filter.Add(3);
-//result is 3 
+//result is 3
 ```
 
-<a name='M-ADN-Helpers-Utils-Filter-Clear'></a>
-### Clear() `method`
+<a name='Filter.Clear'></a>
 
-##### Summary
+
+### Clear
 
 Remove all values from the filter queue.
 
-##### Parameters
+<a name='T:ADN.Helpers.Range'></a>
 
-This method has no parameters.
 
-<a name='T-ADN-Helpers-Utils-Range'></a>
-## Range `type`
-
-##### Namespace
-
-ADN.Helpers.Utils
-
-##### Summary
+## Range
 
 A static class of utilities for ranges.
 
-<a name='M-ADN-Helpers-Utils-Range-Intersection-System-Double,System-Double,System-Double,System-Double,System-Double@,System-Double@-'></a>
-### Intersection(max1,min1,max2,min2,maxR,minR) `method`
+<a name='Range.Intersection(max1,min1,max2,min2,maxR,minR)'></a>
 
-##### Summary
+
+### Intersection(max1, min1, max2, min2, maxR, minR)
 
 Calculate the intersection of the given ranges.
 
-##### Returns
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| max1 | *System.Double*<br>Maximum value of the first rank. |
+
+#### Parameters
+
+| min1 | *System.Double*<br>Minimum value of the first rank. |
+
+#### Parameters
+
+| max2 | *System.Double*<br>Maximum value of the second rank. |
+
+#### Parameters
+
+| min2 | *System.Double*<br>Minimum value of the second rank. |
+
+#### Parameters
+
+| maxR | *System.Double@*<br>Maximum value of the intersection range. |
+
+#### Parameters
+
+| minR | *System.Double@*<br>Minimum value of the intersection range. |
+
+
+#### Returns
 
 True if intersection exists, false otherwise.
 
-##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| max1 | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Maximum value of the first rank. |
-| min1 | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Minimum value of the first rank. |
-| max2 | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Maximum value of the second rank. |
-| min2 | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Minimum value of the second rank. |
-| maxR | [System.Double@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double@ 'System.Double@') | Maximum value of the intersection range. |
-| minR | [System.Double@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double@ 'System.Double@') | Minimum value of the intersection range. |
-
-##### Example
+#### Example
 
 ```csharp
 double max1 = 20;
@@ -249,53 +273,52 @@ double min2 = 16;
 double maxRresult;
 double minRresult;
 var result = Range.Intersection(max1, min1, max2, min2, out maxRresult, out minRresult);
+
 /*
 result is true
 maxRresult is 20
 minRresult is 16
-*/ 
+*/
 ```
 
-<a name='T-ADN-Helpers-ReflectiveSubclassEnumerator'></a>
-## ReflectiveSubclassEnumerator `type`
+<a name='T:ADN.Helpers.ReflectiveSubclassEnumerator'></a>
 
-##### Namespace
 
-ADN.Helpers
-
-##### Summary
+## ReflectiveSubclassEnumerator
 
 A static class of reflective enumerator.
 
-<a name='M-ADN-Helpers-ReflectiveSubclassEnumerator-GetEnumerableOfType``1-System-Object[]-'></a>
-### GetEnumerableOfType\`\`1(constructorArgs) `method`
+<a name='ReflectiveSubclassEnumerator.GetEnumerableOfType`<T>(constructorArgs)'></a>
 
-##### Summary
+
+### GetEnumerableOfType`<T>(constructorArgs)
 
 Gets all subclasses of the given abstract class.
 
-##### Returns
 
-List of references to the newly created objects.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| constructorArgs | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | An array of arguments that match in number, order,
-and type the parameters of the constructor to invoke. If args is an empty array or null,
-the constructor that takes no parameters (the default constructor) is invoked. |
-
-##### Generic Types
+#### Parameters
 
 | Name | Description |
 | ---- | ----------- |
-| T | The type of the abstract class. |
+| constructorArgs | *System.Object[]*<br>An array of arguments that match in number, order, and type the parameters of the constructor to invoke. If args is an empty array or null, the constructor that takes no parameters (the default constructor) is invoked. |
 
-##### Example
+
+#### Returns
+
+List of references to the newly created objects.
+
+
+#### Example
 
 ```csharp
 public class AbsFoo {}
 public class Foo1 : AbsFoo { }
-public class Foo2 : AbsFoo { } 
+public class Foo2 : AbsFoo { }
+
+var result = ReflectiveSubclassEnumerator.GetEnumerableOfType<AbsFoo>(null).ToList();
+
+/*
+result is [ Foo1, Foo2 ]
+*/
 ```
+
