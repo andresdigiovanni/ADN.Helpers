@@ -1,6 +1,6 @@
 # Helpers and Utilities Library for .NET
 
-ADN.Helpers is a cross-platform open-source library which provides helpers and utilities to .NET developers.
+ADN.Helpers is a cross-platform open-source library which provides helpers classes to .NET developers.
 
 [![Build Status](https://travis-ci.org/andresdigiovanni/ADN.Helpers.svg?branch=master)](https://travis-ci.org/andresdigiovanni/ADN.Helpers)
 [![NuGet](https://img.shields.io/nuget/v/ADN.Helpers.svg)](https://www.nuget.org/packages/ADN.Helpers/)
@@ -8,6 +8,25 @@ ADN.Helpers is a cross-platform open-source library which provides helpers and u
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Helpers&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Helpers)
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=andresdigiovanni_ADN.Helpers&metric=alert_status)](https://sonarcloud.io/dashboard?id=andresdigiovanni_ADN.Helpers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Basic usage
+
+Example EnumHelper:
+
+```csharp
+enum Foo
+{
+    A, B, C, D
+}
+var value = "A";
+var type = typeof(Foo);
+var ignoreCase = true;
+var result = EnumHelper.GetEnumValue(type, value, ignoreCase);
+
+/*
+ result is Foo.A
+ */
+```
 
 ## Installation
 
